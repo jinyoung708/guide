@@ -1,0 +1,13 @@
+﻿@use '../abstracts/absForward' as a;
+
+// 약관 팝업
+.terms {
+    &__head {
+        margin-bottom:25px;
+    }
+    &__body {
+        color:var(--color-fg-default);
+        font-size:var(--fs-300);
+        line-height:1.5em;
+    }
+}

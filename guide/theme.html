@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>KBS TVUT 퍼블리싱 가이드</title>
+        <link rel="stylesheet" href="../assets/css/style.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="../assets/js/jquery-3.6.0.min.js"></script>
+        <script src="js/library.js"></script>
+        <script src="js/ui.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    </head>
+    <body data-color-theme="dark">
+        <div class="pub">
+            <header class="pub_header">
+                <h1>KBS TVUT 퍼블리싱 가이드</h1>
+                <div class="pub_toggle">
+                    <a class="menuTrigger js-menuTrigger on" href="#">
+                        <span></span>
+                        <span></span>
+                    </a>
+                </div>
+            </header>
+            <div class="pub_snb js-pubSnb on">
+                <ol>
+                    <li class="on"><a href="guide.html">규칙</a></li>
+                </ol>
+                <ul>
+                </ul>
+            </div>
+            <ul class="pub_index">
+            </ul>
+            <div class="pub_container">
+                <section class="pub_section">
+                    <h2>색상 테마 관리</h2>
+                    <div>
+                        <h3>기본 사항</h3>
+                        <ol class="pub_ol">
+                            <li>TVUT은 기본적으로 다크 모드 테마를 기본으로 하고 있다.</li>
+                            <li>추후 라이트 모드, 키즈 모드, 시니어 모드 등 다양한 색상 테마가 추가 될 수 있을 것으로 보인다.</li>
+                            <li>그에 따라 색상 Variable은 테마에 따라 변경 될 수 있도록 구성한다.</li>
+                        </ol>
+                    </div>
+                    <div>
+                        <h3>색상 정의</h3>
+                        <ol class="pub_ol">
+                            <li>해당 테마 map 내에 CSS var 형태로 색상을 정의한다.
+                                <div class="pub_markup">
+                                    <pre><code class="scss">$color-map-dark: (
+    --color-fg-default: #fff,
+    --color-fg-muted: #999,
+    --color-fg-subtle: #444,
+    --color-fg-on-emphasis: #fff,
+);
+$color-map-light: (
+    --color-fg-default: #000,
+    --color-fg-muted: #444,
+    --color-fg-subtle: #999,
+    --color-fg-on-emphasis: #fff,
+);</code></pre>
+                                </div>
+                        </ol>
+                    </div>
+                    <div>
+                        <h3>사용 방법</h3>
+                        <ol class="pub_ol">
+                            <li>미리 정의된 mixin이 색상이 정의된 map을 body의 data-color-theme 속성에 따라 CSS var 형태로 컴파일한다.
+                                <div class="pub_markup">
+                                    <pre><code class="scss">@mixin spread-map($map: ()) {
+    @each $key, $value in $map {
+        #{$key}: $value;
+    }
+}
+:root body[data-color-theme=light] {
+    @include spread-map($color-map-light);
+}
+:root body[data-color-theme=dark]{
+    @include spread-map($color-map-dark);
+}</code></pre>
+                            </div>
+                            </li>
+                            <li>따라서 SCSS내에서 색상 사용 시 <b>var(색상명)</b>형태로 색상을 사용해야 한다.
+                                <div class="pub_markup">
+                                    <pre><code class="scss">body{
+    background-color: var(--color-canvas-default);
+}</code></pre>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                    <div>
+                        <h3>색상 목록</h3>
+                        <div class="colors">
+                            <h3 class="colors_tit">Foreground</h3>
+                            <div class="colors_desc">폰트 등에 사용하는 전경색</div>
+                            <div class="colors_container">
+                                <div class="colors_item">
+                                    <div class="colors_sample">
+                                        <div class="colors_chip" style="color: var(--color-fg-default);">Aa</div>
+                                    </div>
+                                    <div class="colors_info">
+                                        <div class="colors_name">--color-fg-default</div>
+                                        <div class="colors_code">#fff</div>
+                                    </div>
+                                </div>
+                                <div class="colors_item">
+                                    <div class="colors_sample">
+                                        <div class="colors_chip" style="color: var(--color-fg-muted);">Aa</div>
+                                    </div>
+                                    <div class="colors_info">
+                                        <div class="colors_name">--color-fg-muted</div>
+                                        <div class="colors_code">#999</div>
+                                    </div>
+                                </div>
+                                <div class="colors_item">
+                                    <div class="colors_sample">
+                                        <div class="colors_chip" style="color: var(--color-fg-subtle);">Aa</div>
+                                    </div>
+                                    <div class="colors_info">
+                                        <div class="colors_name">--color-fg-subtle</div>
+                                        <div class="colors_code">#444</div>
+                                    </div>
+                                </div>
+                                <div class="colors_item">
+                                    <div class="colors_sample">
+                                        <div class="colors_chip" style="color: var(--color-fg-on-emphasis); background-color: var(--color-accent-emphasis);">Aa</div>
+                                    </div>
+                                    <div class="colors_info">
+                                        <div class="colors_name">--color-fg-on-emphasis</div>
+                                        <div class="colors_code">#fff</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="colors">
+                            <h3 class="colors_tit">Canvas</h3>
+                            <div class="colors_desc">배경색</div>
+                            <div class="colors_container">
+                                <div class="colors_item">
+                                    <div class="colors_sample">
+                                        <div class="colors_chip" style="background-color: var(--color-canvas-default);"></div>
+                                    </div>
+                                    <div class="colors_info">
+                                        <div class="colors_name">--color-canvas-default</div>
+                                        <div class="colors_code">#1d1d1d</div>
+                                    </div>
+                                </div>
+                                <div class="colors_item">
+                                    <div class="colors_sample">
+                                        <div class="colors_chip" style="background-color: var(--color-canvas-overlay);"></div>
+                                    </div>
+                                    <div class="colors_info">
+                                        <div class="colors_name">--color-canvas-overlay</div>
+                                        <div class="colors_code">#1d1d1d</div>
+                                    </div>
+                                </div>
+                                <div class="colors_item">
+                                    <div class="colors_sample">
+                                        <div class="colors_chip" style="background-color: var(--color-canvas-inset);"></div>
+                                    </div>
+                                    <div class="colors_info">
+                                        <div class="colors_name">--color-canvas-inset</div>
+                                        <div class="colors_code">#000</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="colors">
+                            <h3 class="colors_tit">Neutral</h3>
+                            <div class="colors_desc">버튼, 인펏 배경 등 다른 의미 없이 강조되는 색상</div>
+                            <div class="colors_container">
+                                <div class="colors_item">
+                                    <div class="colors_sample">
+                                        <div class="colors_chip" style="background-color: var(--color-neutral-emphasisPlus);"></div>
+                                    </div>
+                                    <div class="colors_info">
+                                        <div class="colors_name">--color-neutral-emphasisPlus</div>
+                                        <div class="colors_code">#000</div>
+                                    </div>
+                                </div>
+                                <div class="colors_item">
+                                    <div class="colors_sample">
+                                        <div class="colors_chip" style="background-color: var(--color-neutral-emphasis);"></div>
+                                    </div>
+                                    <div class="colors_info">
+                                        <div class="colors_name">--color-neutral-emphasis</div>
+                                        <div class="colors_code">#333</div>
+                                    </div>
+                                </div>
+                                <div class="colors_item">
+                                    <div class="colors_sample">
+                                        <div class="colors_chip" style="background-color: var(--color-neutral-emphasis-muted);"></div>
+                                    </div>
+                                    <div class="colors_info">
+                                        <div class="colors_name">--color-neutral-muted</div>
+                                        <div class="colors_code">#999</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="colors">
+                            <h3 class="colors_tit">Border</h3>
+                            <div class="colors_desc">보더 색상</div>
+                            <div class="colors_container">
+                                <div class="colors_item">
+                                    <div class="colors_sample">
+                                        <div class="colors_chip" style="border-color: var(--color-border-emphasis);"></div>
+                                    </div>
+                                    <div class="colors_info">
+                                        <div class="colors_name">--color-border-emphasis</div>
+                                        <div class="colors_code">#fff</div>
+                                    </div>
+                                </div>
+                                <div class="colors_item">
+                                    <div class="colors_sample">
+                                        <div class="colors_chip" style="border-color: var(--color-border-default);"></div>
+                                    </div>
+                                    <div class="colors_info">
+                                        <div class="colors_name">--color-border-default</div>
+                                        <div class="colors_code">#999</div>
+                                    </div>
+                                </div>
+                                <div class="colors_item">
+                                    <div class="colors_sample">
+                                        <div class="colors_chip" style="border-color: var(--color-border-muted);"></div>
+                                    </div>
+                                    <div class="colors_info">
+                                        <div class="colors_name">--color-border-muted</div>
+                                        <div class="colors_code">#444</div>
+                                    </div>
+                                </div>
+                                <div class="colors_item">
+                                    <div class="colors_sample">
+                                        <div class="colors_chip" style="border-color: var(--color-border-subtle);"></div>
+                                    </div>
+                                    <div class="colors_info">
+                                        <div class="colors_name">--color-border-subtle</div>
+                                        <div class="colors_code">#333</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="colors">
+                            <h3 class="colors_tit">Accent</h3>
+                            <div class="colors_desc">강조색, 액션 컬러</div>
+                            <div class="colors_container">
+                                <div class="colors_item">
+                                    <div class="colors_sample">
+                                        <div class="colors_chip" style="color: var(--color-accent-fg);">Aa</div>
+                                    </div>
+                                    <div class="colors_info">
+                                        <div class="colors_name">--color-accent-fg</div>
+                                        <div class="colors_code">#3582F4</div>
+                                    </div>
+                                </div>
+                                <div class="colors_item">
+                                    <div class="colors_sample">
+                                        <div class="colors_chip" style="background-color: var(--color-accent-emphasis);"></div>
+                                    </div>
+                                    <div class="colors_info">
+                                        <div class="colors_name">--color-accent-emphasis</div>
+                                        <div class="colors_code">#3582F4</div>
+                                    </div>
+                                </div>
+                                <div class="colors_item">
+                                    <div class="colors_sample">
+                                        <div class="colors_chip" style="background-color: var(--color-accent-muted);"></div>
+                                    </div>
+                                    <div class="colors_info">
+                                        <div class="colors_name">--color-accent-muted</div>
+                                        <div class="colors_code">rgba(53,130,244,0.5)</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="colors">
+                            <h3 class="colors_tit">Attention</h3>
+                            <div class="colors_desc">강조색, 유저가 확인해야 할 사항</div>
+                            <div class="colors_container">
+                                <div class="colors_item">
+                                    <div class="colors_sample">
+                                        <div class="colors_chip" style="color: var(--color-attention-fg);">Aa</div>
+                                    </div>
+                                    <div class="colors_info">
+                                        <div class="colors_name">--color-attention-fg</div>
+                                        <div class="colors_code">#e15241</div>
+                                    </div>
+                                </div>
+                                <div class="colors_item">
+                                    <div class="colors_sample">
+                                        <div class="colors_chip" style="background-color: var(--color-attention-emphasis);"></div>
+                                    </div>
+                                    <div class="colors_info">
+                                        <div class="colors_name">--color-attention-emphasis</div>
+                                        <div class="colors_code">#e15241</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="colors">
+                            <h3 class="colors_tit">Danger</h3>
+                            <div class="colors_desc">경고색, 에러</div>
+                            <div class="colors_container">
+                                <div class="colors_item">
+                                    <div class="colors_sample">
+                                        <div class="colors_chip" style="color: var(--color-danger-fg);">Aa</div>
+                                    </div>
+                                    <div class="colors_info">
+                                        <div class="colors_name">--color-danger-fg</div>
+                                        <div class="colors_code">#e15241</div>
+                                    </div>
+                                </div>
+                                <div class="colors_item">
+                                    <div class="colors_sample">
+                                        <div class="colors_chip" style="background-color: var(--color-danger-emphasis);"></div>
+                                    </div>
+                                    <div class="colors_info">
+                                        <div class="colors_name">--color-danger-emphasis</div>
+                                        <div class="colors_code">#e15241</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="pub_section">
+                    <h2>폰트 사이즈 관리</h2>
+                    <div>
+                        <h3>기본 사항</h3>
+                        <ol class="pub_ol">
+                            <li>정책 대기중</li>
+                        </ol>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </body>
+</html>

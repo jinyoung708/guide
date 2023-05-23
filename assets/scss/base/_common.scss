@@ -1,0 +1,63 @@
+﻿@use '../abstracts/absForward' as a;
+
+:root body[data-color-mode=dark]{
+    @include a.spread-map(a.$color-map-dark);
+}
+:root body[data-fs-mode=md]{
+    @include a.spread-map(a.$fs-map-md);
+}
+:root body[data-fs-mode=lg]{
+    @include a.spread-map(a.$fs-map-lg);
+}
+
+html,body{
+    font-family: 'Noto Sans KR','Apple SD Gothic Neo','애플 SD 산돌고딕 Neo','Helvetica Neue',Roboto,sans-serif;
+    background-color: var(--color-canvas-default);
+    color: var(--color-fg-default);
+    line-height: normal;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+html::-webkit-scrollbar,body::-webkit-scrollbar{
+    display: none;
+}
+img{
+    display: block;
+    width: 100%;
+}
+
+// skipNav
+.skipNav{
+    position: fixed;
+    top: -30px;
+    left: 0;
+    right: 0;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    text-align: center;
+    color: var(--color-fg-default);
+    background: var(--color-canvas-inset);
+    z-index: a.getZ(absolute);
+    &:focus{
+        top: 0;
+    }
+}
+
+// 약속어
+.a11y{
+    margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip: rect(0, 0, 0, 0);
+    position: absolute;
+}
+.mont{
+    font-family: a.$mont;
+}
+.noto{
+    font-family: a.$noto;
+}

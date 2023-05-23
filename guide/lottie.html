@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>KBS TVUT 퍼블리싱 가이드</title>
+        <link rel="stylesheet" href="../assets/css/style.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="../assets/js/jquery-3.6.0.min.js"></script>
+        <script src="../assets/js/ui.js"></script>
+        <script src="js/library.js"></script>
+        <script src="js/ui.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+        <script src="../assets/vendor/lottie-player/lottie-player.js"></script>
+    </head>
+    <body data-color-mode="dark" data-fs-mode="md">
+        <div class="pub">
+            <header class="pub_header">
+                <h1>KBS TVUT 퍼블리싱 가이드</h1>
+                <div class="pub_toggle">
+                    <a class="menuTrigger js-menuTrigger on" href="#">
+                        <span></span>
+                        <span></span>
+                    </a>
+                </div>
+            </header>
+            <div class="pub_snb js-pubSnb on">
+                <ol>
+                    <li class="on"><a href="guide.html">규칙</a></li>
+                </ol>
+                <ul>
+                </ul>
+            </div>
+            <ul class="pub_index">
+            </ul>
+            <div class="pub_container">
+                <section class="pub_section">
+                    <h2>Lottie 애니메이션</h2>
+                    <div>
+                        <h3>Lottie란</h3>
+                        <ol class="pub_ol">
+                            <li>gif, apng 등 보다 효율적으로 애니메이션을 구현 할 수 있는 라이브러리</li>
+                            <li>Adobe After Effect로 제작된 애니메이션을 JSON 형태로 내보내, 웹 상에서 구현한다.</li>
+                            <li>아래 예시의 경우 CORS 에러를 일으키므로 일반 로컬 환경에서는 확인 할 수 없다.</li>
+                        </ol>
+                        <div class="pub_view">
+                            <div style="width:300px; height:300px"><lottie-player src="../assets/images/lottie/lottie_accomplished.json" background="transparent" speed="1" loop autoplay></lottie-player></div>
+                        </div>
+                        <div class="pub_markup">
+                            <pre>
+                            <code class="html">&lt;lottie-player src="../assets/images/lottie/lottie_accomplished.json" background="transparent" speed="1" loop autoplay&gt;</lottie-player></code>
+                            </pre>
+                        </div>
+                    </div>
+                </section>
+                <section class="pub_section">
+                    <h2>Lottie 목록</h2>
+                    <div>
+                        <h3>댓글 이모지</h3>
+                        <div class="pub_view" style="display: flex; gap: 20px; align-items: center;">
+                            <!-- 사랑 -->
+                            <lottie-player src="../assets/images/lottie/lottie_emoji_love.json" background="transparent" speed="1" loop autoplay></lottie-player>
+                            <!-- 웃음 -->
+                            <lottie-player src="../assets/images/lottie/lottie_emoji_yep.json" background="transparent" speed="1" loop autoplay></lottie-player>
+                            <!-- 부정 -->
+                            <lottie-player src="../assets/images/lottie/lottie_emoji_no.json" background="transparent" speed="1" loop autoplay></lottie-player>
+                            <!-- 화남 -->
+                            <lottie-player src="../assets/images/lottie/lottie_emoji_angry.json" background="transparent" speed="1" loop autoplay></lottie-player>
+                            <!-- 슬픔 -->
+                            <lottie-player src="../assets/images/lottie/lottie_emoji_sad.json" background="transparent" speed="1" loop autoplay></lottie-player>
+                        </div>
+                        <div class="pub_markup">
+                            <pre>
+                            <code class="html">&lt;!-- 사랑 --&gt;
+&lt;lottie-player src="../assets/images/lottie/lottie_emoji_love.json" background="transparent" speed="1" loop autoplay&gt;&lt;/lottie-player&gt;
+&lt;!-- 웃음 --&gt;
+&lt;lottie-player src="../assets/images/lottie/lottie_emoji_yep.json" background="transparent" speed="1" loop autoplay&gt;&lt;/lottie-player&gt;
+&lt;!-- 부정 --&gt;
+&lt;lottie-player src="../assets/images/lottie/lottie_emoji_no.json" background="transparent" speed="1" loop autoplay&gt;&lt;/lottie-player&gt;
+&lt;!-- 화남 --&gt;
+&lt;lottie-player src="../assets/images/lottie/lottie_emoji_angry.json" background="transparent" speed="1" loop autoplay&gt;&lt;/lottie-player&gt;
+&lt;!-- 슬픔 --&gt;
+&lt;lottie-player src="../assets/images/lottie/lottie_emoji_sad.json" background="transparent" speed="1" loop autoplay&gt;&lt;/lottie-player&gt;</code>
+                            </pre>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Modal 내 애니메이션</h3>
+                        <div class="pub_view" style="display: flex; gap: 20px; align-items: center;">
+                            <!-- 즐겨찾기 완료 -->
+                            <lottie-player src="../assets/images/lottie/lottie_fav.json" background="transparent" speed="1" loop autoplay></lottie-player>
+                            <!-- 이벤트 정답 -->
+                            <lottie-player src="../assets/images/lottie/lottie_clap.json" background="transparent" speed="1" loop autoplay></lottie-player>
+                            <!-- 이벤트 오답 -->
+                            <lottie-player src="../assets/images/lottie/lottie_rising_stars.json" background="transparent" speed="1" loop autoplay></lottie-player>
+                            <!-- 이벤트 참여완료 -->
+                            <lottie-player src="../assets/images/lottie/lottie_accomplished.json" background="transparent" speed="1" loop autoplay></lottie-player>
+                        </div>
+                        <div class="pub_markup">
+                            <pre>
+                            <code class="html">&lt;!-- 즐겨찾기 완료 --&gt;
+&lt;lottie-player src="../assets/images/lottie/lottie_fav.json" background="transparent" speed="1" loop autoplay&gt;&lt;/lottie-player&gt;
+&lt;!-- 이벤트 정답 --&gt;
+&lt;lottie-player src="../assets/images/lottie/lottie_clap.json" background="transparent" speed="1" loop autoplay&gt;&lt;/lottie-player&gt;
+&lt;!-- 이벤트 오답 --&gt;
+&lt;lottie-player src="../assets/images/lottie/lottie_rising_stars.json" background="transparent" speed="1" loop autoplay&gt;&lt;/lottie-player&gt;
+&lt;!-- 이벤트 참여완료 --&gt;
+&lt;lottie-player src="../assets/images/lottie/lottie_accomplished.json" background="transparent" speed="1" loop autoplay&gt;&lt;/lottie-player&gt;</code>
+                            </pre>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </body>
+</html>

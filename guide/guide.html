@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>KBS TVUT 퍼블리싱 가이드</title>
+        <link rel="stylesheet" href="../assets/css/style.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="../assets/js/jquery-3.6.0.min.js"></script>
+        <script src="js/library.js"></script>
+        <script src="js/ui.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    </head>
+    <body>
+        <div class="pub">
+            <header class="pub_header">
+                <h1>KBS TVUT 퍼블리싱 가이드</h1>
+                <div class="pub_toggle">
+                    <a class="menuTrigger js-menuTrigger on" href="#">
+                        <span></span>
+                        <span></span>
+                    </a>
+                </div>
+            </header>
+            <div class="pub_snb js-pubSnb on">
+                <ol>
+                    <li class="on"><a href="guide.html">규칙</a></li>
+                </ol>
+                <ul>
+                </ul>
+            </div>
+            <ul class="pub_index">
+            </ul>
+            <div class="pub_container">
+                <section class="pub_section">
+                    <h2>기본 정책</h2>
+                    <div>
+                        <h3>웹 표준과 웹 접근성</h3>
+                        <ol class="pub_ol">
+                            <li>W3C 웹 표준 검사를 진행한다. (<a href="https://validator.w3.org/" class="pub_a" target="_blank">HTML</a>/<a href="http://jigsaw.w3.org/css-validator/" class="pub_a" target="_blank">CSS</a>)</li>
+                            <li>웹 접근성 기준은 정해진 정책은 없으나 WAI-ARIA를 사용하지 않는 선에서 기본적인 접근성을 준수한다. : 키보드 조작, 대체텍스트</li>
+                        </ol>
+                    </div>
+                    <div>
+                        <h3>크로스 브라우징</h3>
+                        <ol class="pub_ol">
+                            <li>PC : Chrome 최신버전, Microsoft Edge 최신버전, Internet Explorer 11, Safari 최신버전 등 모던 웹 브라우저 최신버전 기준 최적화</li>
+                            <li>MO : AOS, IOS 디바이스 최적화, 지원 버전 미상</li>
+                        </ol>
+                    </div>
+                </section>
+                <section class="pub_section">
+                    <h2>폴더/파일</h2>
+                    <div>
+                        <div class="pub_markup">
+                            <pre><code class="text">root/
+|
+|– html/
+|   |– main/
+|   |– foo/
+|   |– bar/
+|
+|– assets/
+|   |– css/
+|   |   |- style.css      # 전체 스타일
+|   |– fonts/             # 폴더별 웹폰트
+|   |   |- notoSansKR/
+|   |   |- Montserrat/
+|   |– images/
+|   |   |- bg/
+|   |   |- ico/
+|   |   |- img/
+|   |   |- temp/
+|   |– js/
+|   |   |- ui.js          # UI control script
+|   |– scss/
+|   |– vendor/
+|   |   |- swiper/        # Swiper 8.4.6
+|   |   |- chartjs/       # Chart.js v4.2.1
+|   |   |- touchSwipe/    # TouchSwipe 1.6.18
+|   |   |- imagesLoaded/  # imagesLoaded 5.0.0
+|
+|– guide/                 # 작업 컨벤션/가이드
+|– Publishing_guide.html  # 산출물 리스트</code></pre>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>HTML</h3>
+                        <ol class="pub_ol">
+                            <li>/html<b class="pub_b">/index.html</b> (메인페이지)</li>
+                            <li>/html<b class="pub_b">/foo/</b></li>
+                            <li>/html<b class="pub_b">/bar/</b></li>
+                        </ol>
+                    </div>
+                    <div>
+                        <h3>CSS</h3>
+                        <ol class="pub_ol">
+                            <li>/assets/css/<b class="pub_b">style.min.css</b> (전체 스타일)</li>
+                            <li>/assets/scss/<b class="pub_b">style.scss</b> (@use partial scss)</li>
+                        </ol>
+                    </div>
+                    <div>
+                        <h3>JS</h3>
+                        <ol class="pub_ol">
+                            <li>/assets/js/<b class="pub_b">ui.js</b> (UI control script. footer 하단에 호출 권장)</li>
+                        </ol>
+                    </div>
+                    <div>
+                        <h3>VENDOR</h3>
+                        <ol class="pub_ol">
+                            <li>/assets/vendor/<b class="pub_b">swiper/</b> (Swiper 8.4.6)</li>
+                            <li>/assets/vendor/<b class="pub_b">chartjs/</b> (Chart.js v4.2.1)</li>
+                            <li>/assets/vendor/<b class="pub_b">touchSwipe/</b> (TouchSwipe 1.6.18)</li>
+                            <li>/assets/vendor/<b class="pub_b">imagesLoaded/</b> (imagesLoaded 5.0.0)</li>
+                        </ol>
+                    </div>
+                    <div>
+                        <h3>이미지</h3>
+                        <ol class="pub_ol">
+                            <li>/assets/img/<b class="pub_b">bg/</b></li>
+                            <li>/assets/img/<b class="pub_b">ico/</b></li>
+                            <li>/assets/img/<b class="pub_b">img/</b></li>
+                            <li>/assets/img/<b class="pub_b">temp/</b></li>
+                        </ol>
+                    </div>
+                    
+                </section>
+                <section class="pub_section">
+                    <h2>이미지 네이밍 규칙</h2>
+                    <div>
+                        <ol class="pub_ol">
+                            <li>아이콘 : <b class="pub_b">ico_이름</b></li>
+                            <li>배경 : <b class="pub_b">bg_이름</b></li>
+                            <li>일반 : <b class="pub_b">img_이름</b></li>
+                            <li>임시 : <b class="pub_b">@화면명_가로x세로</b> (@main_750x300.jpg)</li>
+                        </ol>
+                    </div>
+                </section>
+                <section class="pub_section">
+                    <h2>HTML</h2>
+                    <div>
+                        <h3>기본 사항</h3>
+                        <ol class="pub_ol">
+                            <li>p 태그를 레이아웃 잡는 용도로 사용하지 않는다. <b>p 태그 안에</b> p, div 등의 <b>block 요소를 넣을 수 없다</b>.</li>
+                            <li>퍼블리싱 작업시에만 링크를 비워두는 경우 <b>href="#n"</b>으로 통일하며, a 태그가 <b>role="link"</b>의 역할을 하지 않는 단순 버튼의 역할을 하는 경우 <b>button</b> 태그 사용을 권장한다. (javascript:void(0) 지양)</li>
+                            <li>tab size는 4칸을 기준으로 한다.(html, script 동일)</li>
+                            <li>끝나는 태그 뒤의 공백은 제거한다.</li>
+                            <li>entity 문자를 사용하지 않는다(nbsp, amp 등)</li>
+                        </ol>
+                    </div>
+                    <div>
+                        <h3>Headings</h3>
+                        <ol class="pub_ol">
+                            <li><b>h1</b>은 사이트 명이 아닌 페이지 명을 기준으로 한다.</li>
+
+                        </ol>
+                    </div>
+                    <div>
+                        <h3>주석</h3>
+                        <ol class="pub_ol">
+                            <li>시작하는 주석은 <b>:: S</b>, 끝나는 주석은 <b>:: E</b>를 마지막에 붙인다.</li>
+                            <li>개발 확인사항은 <b>[D]</b>, 퍼블리싱 확인사항은 <b>[P]</b>를 첫머리에 붙인다.
+                                <div class="pub_markup">
+                                    <pre><code class="html">
+&lt;!-- header :: S --&gt;
+&lt;!-- [P] 메뉴 열림 시 active 클래스 추가 --&gt;
+&lt;div class="menu"&gt;&lt;/div&gt;
+&lt;!-- header :: E --&gt;</code></pre>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                    <div>
+                        <h3>구조</h3>
+                        <ol class="pub_ol">
+                            <li>아래 구조를 기본으로 한다.
+                                <div class="pub_markup">
+                                    <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;KBS 티벗&lt;/title&gt;
+    &lt;link rel="stylesheet" href="../assets/css/style.min.css"&gt;
+    &lt;script src="../assets/js/jquery-3.6.0.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body data-color-mode="dark" data-fs-mode="md"&gt;
+    &lt;a href="#content" class="skipNav"&gt;네비게이션 건너뛰기&lt;/a&gt;
+    &lt;div class="wrap"&gt;
+        &lt;!-- header :: S --&gt;
+        &lt;header class="header"&gt;&lt;/header&gt;
+        &lt;!-- header :: E --&gt;
+        &lt;!-- container :: S --&gt;
+        &lt;div class="container" id="content"&gt;&lt;/div&gt;
+        &lt;!-- container :: E --&gt;
+        &lt;!-- footer :: S --&gt;
+        &lt;footer class="footer"&gt;&lt;/footer&gt;
+        &lt;!-- footer :: E --&gt;
+        &lt;!-- modal :: S --&gt;
+        &lt;div id="MODAL" class="modal"&gt;&lt;/div&gt;
+        &lt;!-- modal :: E --&gt;
+        &lt;!-- UI control script :: S --&gt;
+        &lt;script src="../assets/js/ui.js"&gt;&lt;/script&gt;
+        &lt;!-- UI control script :: E --&gt;
+        &lt;!-- 화면 별 script :: S --&gt;
+        &lt;script&gt;&lt;/script&gt;
+        &lt;!-- 화면 별 script :: E --&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                    
+                </section>
+            </div>
+        </div>
+    </body>
+</html>

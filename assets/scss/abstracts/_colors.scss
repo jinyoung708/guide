@@ -1,0 +1,56 @@
+﻿$color-map-dark: (
+    // foreground
+    --color-fg-default: #fff,
+    --color-fg-muted: #999,
+    --color-fg-subtle: #444,
+    --color-fg-on-emphasis: #fff,
+
+    // canvas
+    --color-canvas-default: #1d1d1d,
+    --color-canvas-muted: #191919,
+    --color-canvas-overlay: #2d2d2d,
+    --color-canvas-inset: #000,
+
+    // neutral
+    --color-neutral-emphasis: #000,
+    --color-neutral-emphasis-on-overlay: #222,
+    --color-neutral-default: #333,
+    --color-neutral-default-on-overlay: #3d3d3d,
+    --color-neutral-muted: #999,
+
+    // border
+    --color-border-emphasis: #fff,
+    --color-border-default: #999,
+    --color-border-muted: #444, 
+    --color-border-subtle: #333,
+
+    // accent
+    --color-accent-fg: #d350bb,
+    --color-accent-emphasis: #d350bb,
+    --color-accent-muted: #dc73c9,
+    --color-accent-subtle: rgba(#d350bb, 0.5),
+    
+    // accent-secondary
+    --color-accent-secondary-fg: #3b80e2,
+    --color-accent-secondary-emphasis: #3b80e2,
+        
+    // accent-secondary-variant
+    --color-accent-secondary-variant-fg: #6be056,
+    --color-accent-secondary-variant-emphasis: #6be056,
+        
+    // accent-tertiary
+    --color-accent-tertiary-fg: #a56aff,
+    --color-accent-tertiary-emphasis: #a56aff,
+
+    // attention
+    --color-attention-fg: #f02922,
+    --color-attention-emphasis: #f02922,
+    
+    // danger
+    --color-danger-fg: #d350bb,
+    --color-danger-emphasis: #d350bb,
+
+    // main color
+    --color-primary: #a70089,
+    --color-secondary: #370094,
+);

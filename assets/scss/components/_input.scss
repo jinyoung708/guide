@@ -1,0 +1,532 @@
+﻿@use '../abstracts/absForward' as a;
+
+input,
+textarea {
+    margin:0;
+    padding:0;
+    font-family:a.$noto;
+    font-size:var(--fs-400);
+    &::-webkit-input-placeholder,
+    &:-ms-input-placeholder,
+    &::placeholder {
+        color:var(--color-fg-subtle);
+    }
+    &:focus {
+        outline:0;
+    }
+}
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    appearance:none;
+    margin:0;
+}
+.inp {
+    $parent : &;
+    width: 100%;
+    position: relative;
+    &__input{
+        display:block;
+        width:100%;
+        height:50px;
+        padding:0 10px;
+        border:1px solid var(--color-border-subtle);
+        border-radius:a.$radius-xs;
+        background-color:var(--color-neutral-default);
+        color: var(--color-fg-default);
+        &:read-only {
+            border-color:var(--color-border-muted);
+            color:var(--color-fg-subtle);
+        }
+        &--error {
+            border-color:var(--color-danger-fg);
+        }
+        &--complete {
+            padding-right:30px;
+            background: {
+                image:url('../images/ico/ico_complete.png');
+                size:13px auto;
+                repeat:no-repeat;
+                position:right 10px center;
+            }
+        }
+        &--center {
+            text-align:center;
+        }
+    }
+    &__utilArea{
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+    }
+    &__togglePw{
+        width:50px;
+        height:50px;
+        border:none;
+        background: {
+            color:transparent;
+            image:url('../images/ico/ico_eyeOn.png');
+            position:center;
+            repeat:no-repeat;
+            size:20px;
+        }
+        cursor:pointer;
+        &.active{
+            background-image:url('../images/ico/ico_eyeOff.png');
+        }
+    }
+    &__erase{
+        display: none;
+        width: 50px;
+        height: 50px;
+        background: {
+            color:transparent;
+            image:url('../images/ico/ico_erase.png');
+            position:center;
+            repeat:no-repeat;
+            size:18px;
+        }
+        cursor:pointer;
+        &.active{
+            display: block;
+        }
+    }
+    &--hasUtil1{
+        #{$parent}__input{
+            padding-right: 50px;
+        }
+    }
+    &--hasUtil2{
+        #{$parent}__input{
+            padding-right: 100px;
+        }
+    }
+    &--hasUtilCenter{
+        #{$parent}__input{
+            padding-right: 50px;
+            padding-left: 50px;
+        }
+    }
+}
+textarea.inp__input {
+    height:100px; // 디자인 나오면 사이즈 수정 필요
+    padding:10px; // 상하 padding 정의된 디자인 아직 없음
+    resize:none;
+}
+
+// 휴대폰번호 입력
+.phonenumber {
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    width:100%;
+    &__row {
+        display:flex;
+        width:100%;
+        gap:8px;
+    }
+    &__inputWrap{
+        width: 100%;
+        position:relative;
+        border-radius:3px;
+        background-color:var(--color-neutral-default);
+        display: flex;
+        &--disabled {
+            border:1px solid var(--color-border-muted);
+            .phonenumber__inputList::before,
+            .phonenumber__inputList::after {
+                background-color:var(--color-border-muted);
+            }
+            .phonenumber__input {
+                height:48px;
+                border:none;
+            }
+        }
+    }
+    &__inputList {
+        position:relative;
+        display:flex;
+        width:100%;
+        gap:0 10px;
+        &::before,
+        &::after {
+            content:'';
+            position:absolute;
+            top:50%;
+            width:10px;
+            height:2px;
+            margin-top:-1px;
+            background-color:var(--color-fg-muted);
+            z-index: 1;
+        }
+        &::before {
+            left:calc((100% - 20px) / 3);
+        }
+        &::after {
+            right:calc((100% - 20px) / 3);
+        }
+    }
+    &__btn {
+        width:113px;
+        min-width:113px;
+    }
+    &__input {
+        text-align:center;
+    }
+}
+
+// input button
+.inputBtn {
+    position:relative;
+    &--multi &__input {
+        & + .inputBtn__label {
+            height:auto;
+            min-height:50px;
+            padding:15px;
+            font-size:var(--fs-300);
+            line-height:1.5;
+        }
+    }
+    &--lined &__input{
+        & + .inputBtn__label, &:checked + .inputBtn__label{
+            background-color: var(--color-canvas-muted);
+        }
+        &:checked + .inputBtn__label::after {
+            content:'';
+            pointer-events: none;
+            touch-action: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--color-accent-emphasis);
+            border-radius:a.$radius-xs;
+        }
+    }
+    &__input {
+        @include a.element-hidden;
+        position: fixed;
+        & + .inputBtn__label {
+            position: relative;
+            display:block;
+            width:100%;
+            height:50px;
+            padding:0 10px;
+            border-radius:a.$radius-xs;
+            background-color:var(--color-neutral-default);
+            color:var(--color-fg-default);
+            font-size:var(--fs-400);
+            text-align:center;
+            line-height:50px;
+            letter-spacing:-0.02em;
+        }
+        &:checked + .inputBtn__label{
+            background-color:  var(--color-accent-emphasis);
+        }
+    }
+    &--tag{
+        font-size: 0;
+        .inputBtn__label{
+            display: inline-block;
+            width: auto;
+            height: 25px;
+            line-height: 24px;
+            font-size: var(--fs-100);
+            letter-spacing: -0.02em;
+            border-radius: a.$radius-xl;
+            padding: 0 5px;
+            background: var(--color-neutral-muted);
+        }
+        .inputBtn__input:checked + .inputBtn__label {
+            background:var(--color-accent-secondary-emphasis);
+        }
+    }
+}
+
+// input button(text only)
+.inputTextBtn {
+    position:relative;
+    &__input {
+        @include a.element-hidden;
+        & + .inputTextBtn__label {
+            display:block;
+            width:100%;
+            color:var(--color-fg-subtle);
+            font-size:var(--fs-400);
+            text-align:center;
+            @include a.ellipsis;
+        }
+        &:checked + .inputTextBtn__label {
+            color:var(--color-fg-default);
+        }
+    }
+}
+
+// input button(contents)
+.inputContBtn {
+    position:relative;
+    &__img {
+        position:relative;
+        border-radius:a.$radius-xs;
+        overflow:hidden;
+        &::before {
+            display:none;
+            content:' ';
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background-color:rgba(#370094, 0.5);
+            z-index: 1;
+            pointer-events: none;
+            touch-action: none;
+        }
+        &::after {
+            display:none;
+            content:' ';
+            position:absolute;
+            top:50%;
+            left:50%;
+            width:24px;
+            height:24px;
+            margin-top:-12px;
+            margin-left:-12px;
+            border-radius:50%;
+            background: {
+                color:var(--color-accent-emphasis);
+                image:url('../images/ico/ico_checkbox.png');
+                repeat:no-repeat;
+                size:24px auto;
+                position:center;
+            }
+            z-index: 1;
+            pointer-events: none;
+            touch-action: none;
+        }
+    }
+    &__input {
+        @include a.element-hidden;
+        position: fixed;
+        &:checked + .inputContBtn__img {
+            &::before,
+            &::after {
+                display:block;
+            }
+        }
+    }
+    &__desc {
+        margin-top:10px;
+        color:var(--color-fg-muted);
+        font-size:var(--fs-300);
+        letter-spacing:-0.02em;
+        text-align:center;
+        @include a.ellipsis(2);
+    }
+    &__label {
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+    }
+}
+
+// ox
+.inputOXbtn {
+    position:relative;
+    &__input {
+        @include a.element-hidden;
+        & + .inputOXbtn__label {
+            position:relative;
+            display:block;
+            width:100%;
+            height:0;
+            padding-top:100%;
+            border-radius:50%;
+            background:var(--color-neutral-default);
+            color:var(--color-fg-default);
+            font-size:var(--fs-400);
+            &::after {
+                content:' ';
+                position:absolute;
+                top:50%;
+                left:50%;
+                width:60px;
+                height:60px;
+                margin-top:-30px;
+                margin-left:-30px;
+                background: {
+                    repeat:no-repeat;
+                    position:center;
+                    size:60px auto;
+                }
+                opacity:0.5;
+            }
+            &--o {
+                &::after {
+                    background-image:url('../images/ico/ico_aO.png');
+                }
+            }
+            &--x {
+                &::after {
+                    background-image:url('../images/ico/ico_aX.png');
+                }
+            }
+        }
+        &:checked + .inputOXbtn__label {
+            background:a.$gradient-horizontal;
+            &::after {
+                opacity:1;
+            }
+        }
+    }
+}
+
+// checkbox
+.checkbox {
+    position:relative;
+    &__input {
+        @include a.element-hidden;
+        & + .checkbox__label {
+            position:relative;
+            display:inline-block;
+            vertical-align:top;
+            padding-left:34px;
+            color:var(--color-fg-default);
+            font-size:var(--fs-400);
+            line-height:24px;
+            &::before {
+                content:' ';
+                position:absolute;
+                top:0;
+                left:0;
+                width:24px;
+                height:24px;
+                border-radius:50%;
+                background: {
+                    image:url('../images/ico/ico_checkbox.png');
+                    repeat:no-repeat;
+                    size:24px;
+                    color:var(--color-neutral-muted);
+                }
+            }
+        }
+        &:checked + .checkbox__label {
+            &::before {
+                background-color:var(--color-accent-emphasis);
+            }
+        }
+    }
+}
+
+// select 
+.selectbox {
+    display:block;
+    width:100%;
+    height:50px;
+    padding:0 30px 0 10px;
+    border:none;
+    border-radius:a.$radius-xs;
+    background: {
+        color:var(--color-neutral-default);
+        image:url('../images/ico/ico_select.png');
+        repeat:no-repeat;
+        size:10px;
+        position:right 10px center;
+    }
+    font-family:a.$noto;
+    color:var(--color-fg-default);
+    font-size:var(--fs-400);
+    outline:0;
+    appearance:none;
+    &:disabled {
+        color:var(--color-fg-subtle);
+        opacity:1;
+    }
+}
+
+// input list
+.inputList {
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    width:100%;
+    &--col1 {
+        flex-direction:column;
+        gap:25px;
+        .inputList__item {
+            width:100%;
+        }
+    }
+    &--col2 {
+        .inputList__item {
+            width:calc((100% - 8px) / 2);
+        }
+    }
+    &--col3 {
+        .inputList__item {
+            width:calc((100% - 16px) / 3);
+        }
+    }
+}
+
+// 약관동의
+.termsAgree {
+    &__all {
+        padding-bottom:15px;
+        border-bottom:1px solid var(--color-border-subtle);
+    }
+    &__item {
+        display:flex;
+        width:100%;
+        justify-content:space-between;
+        margin-top:15px;
+    }
+    &__link {
+        display:block;
+        width:24px;
+        height:24px;
+        background:url('../images/ico/ico_arrowRt.png') right center no-repeat;
+        background-size:6px auto;
+    }
+}
+
+// toggle
+.toggle{
+    &__input{
+        @include a.element-hidden;
+        &:checked + .toggle__label{
+            background: a.$gradient-horizontal;
+            &::after{
+                left: 15px;
+            }
+        }
+    }
+    &__label{
+        display: block;
+        position: relative;
+        width: 40px;
+        height: 17px;
+        margin: 4px 0;
+        background: var(--color-neutral-muted);
+        border-radius: a.$radius-xl;
+        transition: .2s background ease-in-out;
+        text-indent: -9999px;
+        cursor: pointer;
+        &::after{
+            content: '';
+            display: inline-block;
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background: var(--color-fg-default);
+            top: -4px;
+            left: 0;
+            border-radius: a.$radius-xl;
+            transition: .1s left ease-in-out;
+            text-indent: 0;
+        }
+    }
+}

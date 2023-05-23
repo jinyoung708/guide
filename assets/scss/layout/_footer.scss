@@ -1,0 +1,51 @@
+﻿@use '../abstracts/absForward' as a;
+
+.footer{
+    &__container{
+        padding-bottom: calc(constant(safe-area-inset-bottom) + 65px);
+        padding-bottom: calc(env(safe-area-inset-bottom) + 65px);
+    }
+    &__top{
+        background: var(--color-canvas-inset);
+    }
+    &__notice{
+        display: block;
+        padding: 9px 38px 11px 12px;
+        font-size: var(--fs-300);
+        color: var(--color-fg-muted);
+        letter-spacing: -0.02em;
+        background: url(../images/ico/ico_right_gray.png) no-repeat calc(100% - 16px) center / 5.5px 9px;
+        @include a.ellipsis;
+        &Cate{
+            margin-right: 6px;
+        }
+    }
+    &__bottom{
+        padding: 22px 12px 47px;
+    }
+    &__link{
+        font-size: 0;
+        &Item{
+            display: inline-block;
+            vertical-align: top;
+        }
+        &Anchor{
+            font-size: var(--fs-300);
+            letter-spacing: -0.02em;
+            color: var(--color-fg-muted);
+            &+ .footer__linkAnchor{
+                margin-left: 5px;
+            }
+            &--bold{
+                font-weight: 700;
+            }
+        }
+    }
+    &__copyright{
+        font-size: var(--fs-300);
+        letter-spacing: -0.02em;
+        color: var(--color-fg-muted);
+        text-transform: uppercase;
+        font-weight: 100;
+    }
+}

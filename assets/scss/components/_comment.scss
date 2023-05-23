@@ -1,0 +1,517 @@
+﻿@use '../abstracts/absForward' as a;
+$multiply : 2; //BO용 확대 배수
+
+.comment{
+    $parent : &;
+    &__body{
+        padding: 0 16px;
+    }
+    &__child{
+        display: none;
+        margin-top: 20px;
+        padding: 25px 0;
+        background-color: var(--color-canvas-muted);
+        .comment__body{
+            padding: 0 26px;
+        }
+    }
+    &__info{
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding-right: 15px;
+    }
+    &__name, &__date{
+        font-size: var(--fs-300);
+        letter-spacing: -0.02em;
+        line-height: 1;
+        color: var(--color-fg-muted);
+    }
+    &__name{
+        min-width: 0;
+        @include a.ellipsis;
+    }
+    &__date, &__best, &__adopted{
+        flex-shrink: 0;
+    }
+    &__best, &__adopted{
+        letter-spacing: -0.02em;
+        line-height: 1;
+    }
+    &__best{
+        border-radius: a.$radius-xs;
+        background-color: var(--color-accent-emphasis);
+        padding: 0 5px;
+        height: 15px;
+        line-height: 14px;
+        font-size: var(--fs-100);
+        color: var(--color-fg-default);
+        margin-right: 5px;
+    }
+    &__name{
+        &--colorA{
+            color: var(--color-accent-secondary-fg);
+        }
+        &--colorB{
+            color: var(--color-accent-secondary-variant-fg);
+        }
+        &--colorC{
+            color: var(--color-fg-muted);
+        }
+        &--blinded{
+            color: var(--color-fg-muted)!important;
+        }
+    }
+    &__name + &__date::before{
+        content: '·';
+        display: inline-block;
+        vertical-align: baseline;
+        margin: 0 3px;
+        font-size: var(--fs-300);
+        color: var(--color-fg-muted);
+    }
+    &__adopted{
+        font-size: var(--fs-200);
+        color: var(--color-accent-tertiary-fg);
+        padding-right: 12px;
+        margin-left: 5px;
+        margin-top: 1px;
+        background: {
+            image: url('../images/ico/ico_adopted.png');
+            position: right center;
+            repeat: no-repeat;
+            size: 9px;
+        };
+    }
+    &__more{
+        width: 25px;
+        height: 25px;
+        background: {
+            image: url('../images/ico/ico_more.png');
+            size: 2.5px auto;
+            repeat: no-repeat;
+            position: center;
+        };
+        position: absolute;
+        right: -11px;
+        top: -5px;
+    }
+    &__cont{
+        padding-right: 20px;
+        margin-top: 5px;
+        &.blinded{
+            >*:not(.comment__toggle){
+                display: none;
+            }
+        }
+    }
+    &__txt{
+        display:block;
+        font-size: var(--fs-400);
+        letter-spacing: -0.02em;
+        line-height: 1.5em;
+        position: relative;
+        color: var(--color-fg-default);
+        &.active{
+            @include a.ellipsis(5);
+            cursor: pointer;
+            &::after{
+                content:'···모두보기';
+                display: block;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                color: var(--color-fg-default);
+                background: var(--color-canvas-default);
+                padding-left: 10px;
+                background: linear-gradient(90deg, transparent 0%, var(--color-canvas-default) 10px);
+            }
+        }
+    }
+    &__emoji{
+        width: 50px;
+        height: 50px;
+        margin-top: 5px;
+    }
+    &__tagList{
+        line-height: 1;
+    }
+    &__tag{
+        font-size: var(--fs-400);
+        color: var(--color-accent-secondary-fg);
+    }
+    &__img{
+        width: 100%;
+        margin-top: 7px;
+    }
+    &__thumb{
+        display: block;
+        width: 100%;
+        position: relative;
+        max-height: 50vh;
+        overflow: hidden;
+        border-radius: a.$radius-xs;
+        &--playable::after{
+            content:'';
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: {
+                color: rgba(0,0,0,0.5);
+                image: url('../images/ico/ico_play.png');
+                repeat: no-repeat;
+                position: center;
+                size: 32px;
+            }
+        }
+        &--gif::after{
+            content: 'GIF';
+            display: block;
+            font-size: var(--fs-100);
+            letter-spacing: -0.02em;
+            color: var(--color-fg-default);
+            padding: 1px 4px 2px;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid var(--color-border-emphasis);
+            border-radius: a.$radius-xs;
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+        }
+    }
+    &__toggle{
+        font-family: a.$noto;
+        text-align: left;
+        &.active{
+            .comment__show{
+                display: none;
+            }
+            .comment__hide{
+                display: block;
+            }
+        }
+    }
+    &__show{
+        display: block;
+        font-size: var(--fs-400);
+        letter-spacing: -0.02em;
+        color: var(--color-fg-subtle);
+    }
+    &__hide{
+        display: none;
+        font-size: var(--fs-400);
+        letter-spacing: -0.02em;
+        color: var(--color-fg-subtle);
+    }
+    &__action{
+        margin-top: 20px;
+    }
+    &--xl{
+        #{$parent}__body{
+            padding: 0 16px * $multiply;
+        }
+        #{$parent}__child{
+            margin-top: 20px * $multiply;
+            padding: 25px * $multiply 0;
+            .comment__body{
+                padding: 0 26px * $multiply;
+            }
+        }
+        #{$parent}__name, #{$parent}__date{
+            // var()의 경우 sass의 연산기능이 아닌 css의 calc()로 연산해야 한다
+            font-size: calc(var(--fs-300) * $multiply);
+        }
+        #{$parent}__best{
+            border-radius: a.$radius-xs * $multiply;
+            padding: 0 5px * $multiply;
+            height: 15px * $multiply;
+            line-height: 14px * $multiply;
+            font-size: calc(var(--fs-100) * $multiply);
+            margin-right: 5px * $multiply;
+        }
+        #{$parent}__name + #{$parent}__date::before{
+            margin: 0 3px * $multiply;
+            font-size: calc(var(--fs-300) * $multiply);
+        }
+        #{$parent}__adopted{
+            font-size: calc(var(--fs-200) * $multiply);
+            padding-right: 12px * $multiply;
+            margin-left: 5px * $multiply;
+            margin-top: 1px * $multiply;
+            background: {
+                size: 9px * $multiply;
+            };
+        }
+        #{$parent}__more{
+            display: none;
+            width: 25px * $multiply;
+            height: 25px * $multiply;
+            background: {
+                size: 2.5px * $multiply auto;
+            };
+            right: -11px * $multiply;
+            top: -5px * $multiply;
+        }
+        #{$parent}__cont{
+            padding-right: 20px * $multiply;
+            margin-top: 5px * $multiply;
+        }
+        #{$parent}__txt{
+            font-size: calc(var(--fs-400) * $multiply);
+            &.active{
+                &::after{
+                    padding-left: 10px * $multiply;
+                    background: linear-gradient(90deg, transparent 0%, var(--color-canvas-default) 10px * $multiply);
+                }
+            }
+        }
+        #{$parent}__emoji{
+            width: 50px * $multiply;
+            height: 50px * $multiply;
+            margin-top: 5px * $multiply;
+        }
+        #{$parent}__tag{
+            font-size: calc(var(--fs-400) * $multiply);
+        }
+        #{$parent}__img{
+            margin-top: 7px * $multiply;
+            border-radius: a.$radius-xs * $multiply;
+            width: auto;
+            img{
+                width: auto;
+                height: 100%;
+                max-width: 480px;
+                max-height: 270px;
+            }
+        }
+        #{$parent}__thumb{
+            width: auto;
+            &--playable::after{
+                background: {
+                    size: 32px * $multiply;
+                }
+            }
+            &--gif::after{
+                font-size: calc(var(--fs-100) * $multiply);
+                padding: 1px * $multiply 4px * $multiply 2px * $multiply;
+                border: 1px * $multiply solid var(--color-border-emphasis);
+                border-radius: a.$radius-xs * $multiply;
+                bottom: 5px * $multiply;
+                right: 5px * $multiply;
+            }
+        }
+        #{$parent}__show{
+            font-size: calc(var(--fs-400) * $multiply);
+        }
+        #{$parent}__hide{
+            font-size: calc(var(--fs-400) * $multiply);
+        }
+        #{$parent}__action{
+            margin-top: 20px * $multiply;
+        }
+    }
+}
+.spinner {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    position: relative;
+    animation: rotate 1s linear infinite
+}
+
+.spinner::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0px;
+    border-radius: 50%;
+    border: 4px solid var(--color-border-emphasis);
+    animation: prixClipFix 2s linear infinite;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes prixClipFix {
+    0% {
+        clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
+    }
+
+    25% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
+    }
+
+    50% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%)
+    }
+
+    75% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%)
+    }
+
+    100% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0)
+    }
+}
+
+.action{
+    $parent : &;
+    display: flex;
+    gap: 15px;
+    &__btn{
+        font-size: var(--fs-400);
+        letter-spacing: -0.02em;
+        color: var(--color-fg-default);
+        background: {
+            repeat: no-repeat;
+            position: left center;
+        };
+        &--like{
+            padding-left: 19px;
+            background: {
+                image: url(../images/ico/ico_like.png);
+                size: 13px auto;
+            }
+            &.active{
+                background-image: url(../images/ico/ico_like_active.png);
+            }
+        }
+        &--comment{
+            padding-left: 18px;
+            background: {
+                image: url(../images/ico/ico_comment.png);
+                size: 14px auto;
+            }
+            &.active{
+                background-image: url(../images/ico/ico_comment_active.png);
+            }
+        }
+    }
+    &--xl{
+        gap: 15px * $multiply;
+        #{$parent}__btn{
+            font-size: calc(var(--fs-400) * $multiply);
+            &--like{
+                padding-left: 19px * $multiply;
+                background: {
+                    size: 13px * $multiply auto;
+                }
+            }
+            &--comment{
+                padding-left: 18px * $multiply;
+                background: {
+                    size: 14px * $multiply auto;
+                }
+            }
+        }
+    }
+}
+
+.commentList{
+    $parent : &;
+    &--listType &__item:last-child:after {
+        display:block;
+    }
+    &__item{
+        position: relative;
+        padding: 25px 0;
+        &::after{
+            content: '';
+            display: block;
+            width: calc(100% - 32px);
+            height: 1px;
+            background-color: var(--color-border-muted);
+            position: absolute;
+            bottom: 0;
+            left: 16px;
+        }
+        &:first-child{
+            padding-top: 0;
+        }
+        &:last-child::after{
+            display: none;
+        }
+    }
+    &__end{
+        text-align: center;
+        font-size: var(--fs-400);
+        color: var(--color-fg-muted);
+        letter-spacing: -0.02em;
+    }
+    &__more{
+        margin: -17px 0;
+        padding: 0 26px;
+        button + button{
+            margin-left: 25px;
+        }
+    }
+    &--xl{
+        #{$parent}__item{
+            padding: 25px * $multiply 0;
+            &::after{
+                width: calc(100% - (32px * $multiply));
+                height: 1px * $multiply;
+                left: 16px * $multiply;
+            }
+        }
+        #{$parent}__end{
+            font-size: calc(var(--fs-400) * $multiply);
+        }
+        #{$parent}__more{
+            padding: 0 26px * $multiply;
+            button{
+                font-size: calc(var(--fs-300) * $multiply);
+                &+button{
+                    margin-left: 25px * $multiply;
+                }
+            }
+        }
+        .spinner {
+            width: 36px * $multiply;
+            height: 36px * $multiply;
+            border-radius: 50%;
+            position: relative;
+            animation: rotate 1s linear infinite
+        }
+        
+        .spinner::before {
+            border-width: 4px  * $multiply;
+        }
+    }
+    &__spinner{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.functionList{
+    &__item{
+        margin-top: 15px;
+        &:first-child{
+            margin-top: 0;
+        }
+    }
+    &__btn{
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+    &__img{
+        display: block;
+        width: 30px;
+    }
+    &__txt{
+        display: block;
+        font-size: var(--fs-400);
+        letter-spacing: -0.02em;
+        color: var(--color-fg-default);
+        padding-left: 8px;
+    }
+}

@@ -1,0 +1,55 @@
+﻿@use '../abstracts/absForward' as a;
+
+button {
+    font-family:a.$noto;
+}
+
+.btn {
+    display:block;
+    width:100%;
+    border:none;
+    border-radius:a.$radius-xs;
+    background:transparent;
+    color:var(--color-fg-default);
+    font-size:var(--fs-400);
+    text-align:center;
+    cursor:pointer;
+    @each $name, $color in a.$btn-colors {
+        &--#{$name} {
+            @if $name == 'gradient' {
+                background-image:$color;
+            } @else {
+                background-color:$color;
+            }
+        }
+    }
+    @each $name, $px in a.$btn-sizes {
+        &--#{$name} {
+            height:#{$px}px;
+        }
+    }
+    &:disabled:not(.btn--neutralOnOverlay) {
+        background:var(--color-neutral-default);
+        color:var(--color-fg-subtle);
+    }
+    &--neutralOnOverlay:disabled {
+        color:var(--color-fg-subtle); // 디자인 수정 후 확인필요
+    }
+}  
+
+// text button
+.textBtn {
+    display:inline-block;
+    padding-bottom:5px;
+    border:none;
+    border-bottom:1px solid var(--color-border-subtle);
+    background:transparent;
+    color:var(--color-fg-muted);
+    font-size:var(--fs-300);
+    line-height:1;
+    cursor:pointer;
+    &--block {
+        display:block;
+        margin:25px auto 0;
+    }
+}

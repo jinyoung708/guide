@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>KBS TVUT 퍼블리싱 가이드</title>
+        <link rel="stylesheet" href="../assets/css/style.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="../assets/js/jquery-3.6.0.min.js"></script>
+        <script src="../assets/js/ui.js"></script>
+        <script src="js/library.js"></script>
+        <script src="js/ui.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    </head>
+    <body data-color-mode="dark" data-fs-mode="md">
+        <div class="pub">
+            <header class="pub_header">
+                <h1>KBS TVUT 퍼블리싱 가이드</h1>
+                <div class="pub_toggle">
+                    <a class="menuTrigger js-menuTrigger on" href="#">
+                        <span></span>
+                        <span></span>
+                    </a>
+                </div>
+            </header>
+            <div class="pub_snb js-pubSnb on">
+                <ol>
+                    <li class="on"><a href="guide.html">규칙</a></li>
+                </ol>
+                <ul>
+                </ul>
+            </div>
+            <ul class="pub_index">
+            </ul>
+            <div class="pub_container">
+                <section class="pub_section">
+                    <h2>text/textarea</h2>
+                    <div>
+                        <div class="pub_view">
+                            <div class="inp inp--hasUtil1">
+                                <input type="text" class="inp__input" placeholder="닉네임 입력">
+                                <div class="inp__utilArea">
+                                    <button type="button" class="inp__erase js-eraseInput"><span class="a11y">지우기</span></button>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="inp">
+                                <input type="text" class="inp__input" placeholder="닉네임 입력" value="readonly" readonly>
+                            </div>
+                            <br>
+                            <div class="inp">
+                                <input type="text" class="inp__input" placeholder="닉네임 입력" value="disabled" disabled>
+                            </div>
+                            <br>
+                            <div class="inp inp--hasUtil1">
+                                <input type="text" class="inp__input inp__input--error" placeholder="닉네임 입력">
+                                <div class="inp__utilArea">
+                                    <button type="button" class="inp__erase js-eraseInput"><span class="a11y">지우기</span></button>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="inp">
+                                <input type="text" class="inp__input inp__input--complete" placeholder="닉네임 입력" value="불러온 데이터 =+ readonly" readonly>
+                            </div>
+                            <br>
+                            <div class="inp">
+                                <textarea class="inp__input" placeholder="입력하세요"></textarea>
+                            </div>
+                        </div>
+                        <div class="pub_markup">
+                            <pre>
+                                <code class="html">&lt;div class="inp inp--hasUtil1"&gt;
+    &lt;input type="text" class="inp__input" placeholder="닉네임 입력"&gt;
+    &lt;div class="inp__utilArea"&gt;
+        &lt;button type="button" class="inp__erase js-eraseInput"&gt;&lt;span class="a11y"&gt;지우기&lt;/span&gt;&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="inp"&gt;
+    &lt;input type="text" class="inp__input" placeholder="닉네임 입력" value="readonly" readonly&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;div class="inp"&gt;
+    &lt;input type="text" class="inp__input" placeholder="닉네임 입력" value="disabled" disabled&gt;
+&lt;/div&gt;
+&lt;div class="inp inp--hasUtil1"&gt;
+    &lt;input type="text" class="inp__input inp__input--error" placeholder="닉네임 입력"&gt;
+    &lt;div class="inp__utilArea"&gt;
+        &lt;button type="button" class="inp__erase js-eraseInput"&gt;&lt;span class="a11y"&gt;지우기&lt;/span&gt;&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="inp"&gt;
+    &lt;textarea class="inp__input" placeholder="입력하세요"&gt;&lt;/textarea&gt;
+&lt;/div&gt;</code>
+                            </pre>
+                        </div>
+                    </div>
+                </section>
+                <section class="pub_section">
+                    <h2>password</h2>
+                    <div>
+                        <div class="pub_view">
+                            <div class="inp inp--hasUtil2">
+                                <input type="password" class="inp__input" placeholder="비밀번호 입력" value="password">
+                                <div class="inp__utilArea">
+                                    <button type="button" class="inp__erase js-eraseInput"><span class="a11y">지우기</span></button>
+                                    <button type="button" class="inp__togglePw js-togglePw"><span class="a11y">비밀번호 보기</span></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pub_markup">
+                            <pre>
+                                <code class="html">&lt;div class="inp inp--hasUtil2"&gt;
+    &lt;input type="password" class="inp__input" placeholder="비밀번호 입력" value="password"&gt;
+    &lt;div class="inp__utilArea"&gt;
+        &lt;button type="button" class="inp__erase js-eraseInput"&gt;&lt;span class="a11y"&gt;지우기&lt;/span&gt;&lt;/button&gt;
+        &lt;button type="button" class="inp__togglePw js-togglePw"&gt;&lt;span class="a11y"&gt;비밀번호 보기&lt;/span&gt;&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code>
+                            </pre>
+                        </div>
+                    </div>
+                </section>
+                <section class="pub_section">
+                    <h2>phone number</h2>
+                    <div>
+                        <div class="pub_view">
+                            <div class="phonenumber">
+                                <div class="phonenumber__row">
+                                    <div class="phonenumber__inputWrap">
+                                        <div class="phonenumber__inputList">
+                                            <div class="inp">
+                                                <input type="number" class="inp__input phonenumber__input" placeholder="010" aria-label="휴대폰번호 첫자리" inputmode="numeric">
+                                            </div>
+                                            <div class="inp">
+                                                <input type="number" class="inp__input phonenumber__input" placeholder="0000" aria-label="휴대폰번호 중간자리" inputmode="numeric">
+                                            </div>
+                                            <div class="inp">
+                                                <input type="number" class="inp__input phonenumber__input" placeholder="0000" aria-label="휴대폰번호 끝자리" inputmode="numeric">
+                                            </div>
+                                        </div>
+                                        <button type="button" class="inp__erase js-erasePwInput"><span class="a11y">지우기</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="phonenumber">
+                                <div class="phonenumber__row">
+                                    <div class="phonenumber__inputWrap">
+                                        <div class="phonenumber__inputList">
+                                            <div class="inp">
+                                                <input type="number" class="inp__input phonenumber__input" placeholder="010" aria-label="휴대폰번호 첫자리" inputmode="numeric">
+                                            </div>
+                                            <div class="inp">
+                                                <input type="number" class="inp__input phonenumber__input" placeholder="0000" aria-label="휴대폰번호 중간자리" inputmode="numeric">
+                                            </div>
+                                            <div class="inp">
+                                                <input type="number" class="inp__input phonenumber__input" placeholder="0000" aria-label="휴대폰번호 끝자리" inputmode="numeric">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn--default btn--md phonenumber__btn">인증번호 받기</button>
+                                </div>
+                                <div class="phonenumber__row">
+                                    <div class="inp inp--hasUtilCenter">
+                                        <input type="number" class="inp__input inp__input--center" placeholder="인증번호 입력" aria-label="인증번호 입력" inputmode="numeric">
+                                        <div class="inp__utilArea">
+                                            <button type="button" class="inp__erase js-eraseInput"><span class="a11y">지우기</span></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="phonenumber">
+                                <div class="phonenumber__row">
+                                    <div class="phonenumber__inputWrap phonenumber__inputWrap--disabled">
+                                        <div class="phonenumber__inputList">
+                                            <div class="inp">
+                                                <input type="number" class="inp__input phonenumber__input" placeholder="010" aria-label="휴대폰번호 첫자리" inputmode="numeric" disabled>
+                                            </div>
+                                            <div class="inp">
+                                                <input type="number" class="inp__input phonenumber__input" placeholder="0000" aria-label="휴대폰번호 중간자리" inputmode="numeric" disabled>
+                                            </div>
+                                            <div class="inp">
+                                                <input type="number" class="inp__input phonenumber__input" placeholder="0000" aria-label="휴대폰번호 끝자리" inputmode="numeric" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn--emphasis btn--md phonenumber__btn">변경</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pub_markup">
+                            <pre>
+                                <code class="html">&lt;div class="phonenumber"&gt;
+    &lt;div class="phonenumber__row"&gt;
+        &lt;div class="phonenumber__inputWrap"&gt;
+            &lt;div class="phonenumber__inputList"&gt;
+                &lt;div class="inp"&gt;
+                    &lt;input type="number" class="inp__input phonenumber__input" placeholder="010" aria-label="휴대폰번호 첫자리" inputmode="numeric"&gt;
+                &lt;/div&gt;
+                &lt;div class="inp"&gt;
+                    &lt;input type="number" class="inp__input phonenumber__input" placeholder="0000" aria-label="휴대폰번호 중간자리" inputmode="numeric"&gt;
+                &lt;/div&gt;
+                &lt;div class="inp"&gt;
+                    &lt;input type="number" class="inp__input phonenumber__input" placeholder="0000" aria-label="휴대폰번호 끝자리" inputmode="numeric"&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;button type="button" class="inp__erase js-erasePwInput"&gt;&lt;span class="a11y"&gt;지우기&lt;/span&gt;&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="phonenumber"&gt;
+    &lt;div class="phonenumber__row"&gt;
+        &lt;div class="phonenumber__inputWrap"&gt;
+            &lt;div class="phonenumber__inputList"&gt;
+                &lt;div class="inp"&gt;
+                    &lt;input type="number" class="inp__input phonenumber__input" placeholder="010" aria-label="휴대폰번호 첫자리" inputmode="numeric"&gt;
+                &lt;/div&gt;
+                &lt;div class="inp"&gt;
+                    &lt;input type="number" class="inp__input phonenumber__input" placeholder="0000" aria-label="휴대폰번호 중간자리" inputmode="numeric"&gt;
+                &lt;/div&gt;
+                &lt;div class="inp"&gt;
+                    &lt;input type="number" class="inp__input phonenumber__input" placeholder="0000" aria-label="휴대폰번호 끝자리" inputmode="numeric"&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;button type="button" class="btn btn--default btn--md phonenumber__btn"&gt;인증번호 받기&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="phonenumber__row"&gt;
+        &lt;div class="inp inp--hasUtilCenter"&gt;
+            &lt;input type="number" class="inp__input inp__input--center" placeholder="인증번호 입력" aria-label="인증번호 입력" inputmode="numeric"&gt;
+            &lt;div class="inp__utilArea"&gt;
+                &lt;button type="button" class="inp__erase js-eraseInput"&gt;&lt;span class="a11y"&gt;지우기&lt;/span&gt;&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="phonenumber"&gt;
+    &lt;div class="phonenumber__row"&gt;
+        &lt;div class="phonenumber__inputWrap phonenumber__inputWrap--disabled"&gt;
+            &lt;div class="phonenumber__inputList"&gt;
+                &lt;div class="inp"&gt;
+                    &lt;input type="number" class="inp__input phonenumber__input" placeholder="010" aria-label="휴대폰번호 첫자리" inputmode="numeric" disabled&gt;
+                &lt;/div&gt;
+                &lt;div class="inp"&gt;
+                    &lt;input type="number" class="inp__input phonenumber__input" placeholder="0000" aria-label="휴대폰번호 중간자리" inputmode="numeric" disabled&gt;
+                &lt;/div&gt;
+                &lt;div class="inp"&gt;
+                    &lt;input type="number" class="inp__input phonenumber__input" placeholder="0000" aria-label="휴대폰번호 끝자리" inputmode="numeric" disabled&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;button type="button" class="btn btn--emphasis btn--md phonenumber__btn"&gt;변경&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code>
+                            </pre>
+                        </div>
+                    </div>
+                </section>
+                <section class="pub_section">
+                    <h2>checkbox</h2>
+                    <div>
+                        <div class="pub_view">
+                            <div class="checkbox">
+                                <input type="checkbox" id="chk01" class="checkbox__input">
+                                <label for="chk01" class="checkbox__label">선택</label>
+                            </div>
+                        </div>
+                        <div class="pub_markup">
+                            <pre>
+                                <code class="html">&lt;div class="checkbox"&gt;
+    &lt;input type="checkbox" id="" class="checkbox__input"&gt;
+    &lt;label for="" class="checkbox__label"&gt;&lt;/label&gt;
+&lt;/div&gt;</code>
+                            </pre>
+                        </div>
+                    </div>
+                </section>
+                <section class="pub_section">
+                    <h2>toggle</h2>
+                    <div>
+                        <div class="pub_view">
+                            <div class="toggle">
+                                <input type="checkbox" id="toggle01" class="toggle__input">
+                                <label for="toggle01" class="toggle__label">토글</label>
+                            </div>
+                        </div>
+                        <div class="pub_markup">
+                            <pre>
+                                <code class="html">&lt;div class="toggle"&gt;
+    &lt;input type="checkbox" id="" class="toggle__input"&gt;
+    &lt;label for="" class="toggle__label"&gt;&lt;/label&gt;
+&lt;/div&gt;</code>
+                            </pre>
+                        </div>
+                    </div>
+                </section>
+                <section class="pub_section">
+                    <h2>input button</h2>
+                    <div>
+                        <div class="pub_view">
+                            <div class="inputBtn">
+                                <input type="radio" id="rdo01" class="inputBtn__input">
+                                <label for="rdo01" class="inputBtn__label">라디오 선택</label>
+                            </div><br>
+                            <div class="inputBtn">
+                                <input type="checkbox" id="chk02" class="inputBtn__input">
+                                <label for="chk02" class="inputBtn__label">체크박스 선택</label>
+                            </div><br>
+                            <div class="inputBtn inputBtn--lined">
+                                <input type="radio" id="rdo02" class="inputBtn__input">
+                                <label for="rdo02" class="inputBtn__label">라디오/체크박스 선택 - lined</label>
+                            </div>
+                            <br>
+                            <div class="inputBtn">
+                                <input type="radio" id="rdo03" class="inputBtn__input" data-uncheck-radio="true">
+                                <label for="rdo03" class="inputBtn__label">해제 가능 라디오 선택</label>
+                            </div>
+                            <br>
+                            <div class="inputBtn inputBtn--tag">
+                                <input type="radio" id="tag01" class="inputBtn__input">
+                                <label for="tag01" class="inputBtn__label">태그 타입 버튼</label>
+                            </div>
+                        </div>
+                        <div class="pub_markup">
+                            <pre>
+                                <code class="html">&lt;div class="inputBtn"&gt;
+    &lt;input type="radio" id="" class="inputBtn__input"&gt;
+    &lt;label for="" class="inputBtn__label"&gt;&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class="inputBtn"&gt;
+    &lt;input type="checkbox" id="" class="inputBtn__input"&gt;
+    &lt;label for="" class="inputBtn__label"&gt;&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class="inputBtn inputBtn--lined"&gt;
+    &lt;input type="radio" id="" class="inputBtn__input"&gt;
+    &lt;label for="" class="inputBtn__label"&gt;&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class="inputBtn"&gt;
+    &lt;input type="radio" id="" class="inputBtn__input" data-uncheck-radio="true"&gt;
+    &lt;label for="" class="inputBtn__label"&gt;&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class="inputBtn inputBtn--tag"&gt;
+    &lt;input type="radio" id="tag01" class="inputBtn__input"&gt;
+    &lt;label for="tag01" class="inputBtn__label"&gt;태그 타입 버튼&lt;/label&gt;
+&lt;/div&gt;</code>
+                            </pre>
+                        </div>
+                    </div>
+                </section>
+                <section class="pub_section">
+                    <h2>select</h2>
+                    <div>
+                        <div class="pub_view">
+                            <select class="selectbox" name="">
+                                <option value="">선택</option>
+                            </select><br>
+                            <select class="selectbox" name="" disabled>
+                                <option value="">선택 : disabled</option>
+                            </select>
+                        </div>
+                        <div class="pub_markup">
+                            <pre>
+                                <code class="html">&lt;select class="selectbox" name=""&gt;
+    &lt;option value=""&gt;&lt;/option&gt;
+&lt;/select&gt;</code>
+                            </pre>
+                        </div>
+                    </div>
+                </section>
+                <section class="pub_section">
+                    <h2>input list</h2>
+                    <div>
+                        <div class="pub_view">
+                            <div class="inputList inputList--col2">
+                                <select class="inputList__item selectbox" name="slt1" aria-label="거주지역 시/도 단위">
+                                    <option value="0">시/도</option>
+                                </select>
+                                <select class="inputList__item selectbox" name="slt2" aria-label="거주지역 시/군/구 단위">
+                                    <option value="0">시/군/구</option>
+                                </select>
+                            </div><br>
+                            <div class="inputList inputList--col3">
+                                <div class="inputList__item inputBtn">
+                                    <input type="checkbox" id="chk1" class="inputBtn__input" name="chk-group">
+                                    <label for="chk1" class="inputBtn__label">정치</label>
+                                </div>
+                                <div class="inputList__item inputBtn">
+                                    <input type="checkbox" id="chk2" class="inputBtn__input" name="chk-group">
+                                    <label for="chk2" class="inputBtn__label">사회</label>
+                                </div>
+                                <div class="inputList__item inputBtn">
+                                    <input type="checkbox" id="chk3" class="inputBtn__input" name="chk-group">
+                                    <label for="chk3" class="inputBtn__label">경제</label>
+                                </div>
+                                <div class="inputList__item inputBtn">
+                                    <input type="checkbox" id="chk4" class="inputBtn__input" name="chk-group">
+                                    <label for="chk4" class="inputBtn__label">예능</label>
+                                </div>
+                                <div class="inputList__item inputBtn">
+                                    <input type="checkbox" id="chk5" class="inputBtn__input" name="chk-group">
+                                    <label for="chk5" class="inputBtn__label">다큐</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pub_markup">
+                            <pre>
+                                <code class="html">&lt;div class="inputList inputList--col2 inputList--col3"&gt;&lt;!-- column2 : .inputList--col2, column3 : inputList--col3 --&gt;
+    &lt;select class="inputList__item selectbox" name=""&gt;
+        &lt;option value=""&gt;&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;div class="inputList__item inputBtn"&gt;
+        &lt;input type="checkbox" id="" class="inputBtn__input" name=""&gt;
+        &lt;label for="" class="inputBtn__label"&gt;&lt;/label&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code>
+                            </pre>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,345 @@
+﻿@use '../abstracts/absForward' as a;
+
+// 마이페이지
+.myPage{
+    margin-top: -25px;
+    padding-bottom: calc(constant(safe-area-inset-bottom) + 17px + 65px - 25px); // 디자인 시안 기준 제일 마지막 컨텐츠~gnb 사이 간격 50 => (17px) + gnb 높이 (65px) - container padding (25px)
+    padding-bottom: calc(env(safe-area-inset-bottom) + 17px + 65px - 25px); // 디자인 시안 기준 제일 마지막 컨텐츠~gnb 사이 간격 50 => (17px) + gnb 높이 (65px) - container padding (25px)
+    &__container{
+        padding: 22px 0 25px;
+        border-bottom: 1px solid var(--color-border-muted);
+        &:first-child{
+            padding-top: 0;
+        }
+        &:last-child{
+            border-bottom: 0;
+        }
+        &--padded{
+            padding: 33px 0;
+        }
+    }
+    &__tit{
+        display: block;
+        font-size: var(--fs-500);
+        font-weight: 500;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        padding-right: 15px;
+        background: {
+            image:url('../images/ico/ico_right_gray.png');
+            size: 5.5px auto;
+            repeat:no-repeat;
+            position: right center;
+        }
+        &+.myPage__tit{
+            margin-top: 35px;
+        }
+    }
+    &__iconLinks{
+        margin-top: 25px;
+    }
+    &__favSlide{
+        margin: 15px 0;
+    }
+    &__emptySection{
+        padding: 35px 0;
+    }
+}
+
+.userName{
+    font-size: 0;
+    &__user{
+        display: inline-block;
+        vertical-align: middle;
+        font-size: var(--fs-700);
+        letter-spacing: -0.02em;
+        line-height: 1;
+    }
+    &__name{
+        font-weight: 500;
+    }
+    &__editBtn{
+        display: inline-block;
+        vertical-align: middle;
+        margin: 1px 0 0 3px;
+        font-size: var(--fs-100);
+        letter-spacing: -0.02em;
+        color: var(--color-accent-fg);
+        border: 1px solid var(--color-accent-subtle);
+        line-height: 1;
+        border-radius: a.$radius-xs;
+        padding: 3px 4px;
+    }
+}
+
+.iconLinks{
+    background: var(--color-neutral-default);
+    border-radius: a.$radius-xs;
+    display: flex;
+    &__item{
+        position: relative;
+        width: 33.3333%;
+        &+ .iconLinks__item::before{
+            content:'';
+            display: block;
+            width: 1px;
+            height: 46px;
+            margin-top: -23px;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            background: var(--color-border-muted);
+        }
+    }
+    &__link{
+        display: block;
+        padding: 21px 0 22px;
+    }
+    &__tit{
+        text-align: center;
+        font-size: var(--fs-300);
+        font-weight: 500;
+        letter-spacing: -0.02em;
+        margin-top: 8px;
+    }
+    &__icon{
+        width: 30px;
+        height: 30px;
+        margin: 0 auto;
+    }
+}
+
+// 북마크
+.bookmarks{
+    font-size: 0;
+    &__item{
+        display: inline-block;
+        vertical-align: top;
+        width: calc((100% - 14px) / 3);
+        margin-left: 7px;
+        &:nth-child(n + 4){
+            margin-top: 20px;
+        }
+        &:first-child, &:nth-child(3n + 1){
+            margin-left: 0;
+        }
+    }
+    &__img{
+        position: relative;
+        border-radius: a.$radius-xs;
+        overflow: hidden;
+        .imgWrapper{
+            padding-top: 152.1%;
+        }
+    }
+    &__btn{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 30px;
+        height: 29px;
+        background: {
+            image: url('../images/ico/ico_bookmark.png');
+            size: 20px auto;
+            repeat:no-repeat;
+            position: center;
+        };
+        text-indent: -9999px;
+        &.active{
+            background-image: url('../images/ico/ico_bookmark_active.png');
+        }
+    }
+    &__tit{
+        font-size: var(--fs-300);
+        color: var(--color-fg-muted);
+        letter-spacing: -0.02em;
+        @include a.ellipsis(2);
+    }
+}
+
+.fsItem{
+    border: 1px solid var(--color-border-default);
+    height: 185px;
+    border-radius: a.$radius-xs;
+    padding: 15px;
+    background: var(--color-canvas-default);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    &__tit{
+        font-size: 32px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+    }
+    &__desc{
+        font-size: 14px;
+        letter-spacing: -0.02em;
+    }
+    &__sub{
+        font-size: 14px;
+        letter-spacing: -0.02em;
+        color: var(--color-fg-muted);
+    }
+    &--lg{
+        .fsItem__tit{
+            font-size: 46px;
+        }
+        .fsItem__desc{
+            font-size: 21px;
+            letter-spacing: -0.02em;
+        }
+        .fsItem__sub{
+            font-size: 21px;
+        }
+    }
+    
+}
+
+.fsChange{
+    &__btnArea{
+        margin-top: 25px;
+        display: flex;
+        gap: 8px;
+    }
+    &__btn{
+        &--md{
+            font-size: 14px;
+        }
+        &--lg{
+            font-size: 22px;
+        }
+        &.active{
+            background: var(--color-accent-emphasis);
+        }
+    }
+}
+
+// 계정 관리
+.connect{
+    &__container{
+        border-bottom: 1px solid var(--color-border-muted);
+        padding: 25px 0;
+        &:first-child{
+            padding-top: 0;
+        }
+        &:last-child{
+            border-bottom: 0;
+        }
+    }
+    &__tit{
+        font-size: var(--fs-500);
+        line-height: 1;
+        letter-spacing: -0.02em;
+        &--hasLink{
+            display: block;
+            padding-right: 15px;
+            background: {
+                image:url('../images/ico/ico_right_gray.png');
+                size: 5.5px auto;
+                repeat:no-repeat;
+                position: right center;
+            }
+        }
+    }
+    &__desc{
+        font-size: var(--fs-400);
+        color: var(--color-fg-muted);
+        letter-spacing: -0.02em;
+        margin-top: 3px;
+    }
+    &__toggleList{
+        margin-top: 25px;
+        padding: 0 10px;
+    }
+}
+
+.toggleList{
+    &__item{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 25px;
+        &:first-child{
+            margin-top: 0;
+        }
+    }
+    &__toggle {
+        margin-left:30px;
+    }
+    &__tit{
+        padding-top:6px;
+        font-size: var(--fs-400);
+        line-height:1;
+        letter-spacing: -0.02em;
+        &--lg {
+            padding-top:5px;
+            font-size:var(--fs-500);
+        }
+    }
+    &__desc {
+        display:block;
+        margin-top: 3px;
+        font-size: var(--fs-400);
+        color: var(--color-fg-muted);
+        letter-spacing: -0.02em;
+        line-height: normal;
+    }
+}
+
+// 회원 탈퇴
+.withdraw{
+    &__tit{
+        font-size: var(--fs-500);
+        font-weight: 500;
+        letter-spacing: -0.02em;
+    }
+    &__chkList{
+        margin-top: 20px;
+    }
+    &__chkItem{
+        margin-top: 15px;
+        &:first-child{
+            margin-top: 0;
+        }
+        .checkbox__label{
+            color: var(--color-fg-muted);
+            font-size: var(--fs-400);
+            padding-left: 34px;
+        }
+    }
+    &__link{
+        text-decoration: underline;
+        font-weight: 700;
+    }
+}
+
+// 차단회원 관리
+.blockUser{
+    &__item{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 27px;
+        &:first-child{
+            margin-top: 0;
+        }
+    }
+    &__name{
+        font-size: var(--fs-400);
+        letter-spacing: -0.02em;
+    }
+    &__before{
+        font-size: var(--fs-300);
+        letter-spacing: -0.02em;
+        color: var(--color-fg-muted);
+    }
+    &__btn{
+        width: auto;
+        font-size: var(--fs-300);
+        letter-spacing: -0.02em;
+        height: 30px;
+        line-height: 30px;
+        padding: 0 7px;
+    }
+}

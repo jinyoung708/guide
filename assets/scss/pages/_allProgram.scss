@@ -1,0 +1,111 @@
+﻿@use '../abstracts/absForward' as a;
+
+.allProgram {
+    &__control {
+        margin-bottom:25px;
+    }
+}
+
+.programList {
+    display:flex;
+    flex-wrap:wrap;
+    gap:25px 7px;
+    width:100%;
+    &__item {
+        width:100%;
+        overflow:hidden;
+    }
+    // list type
+    &--list {
+        .programItem {
+            display:flex;
+            align-items:center;
+            width:100%;
+            overflow:hidden;
+            &__thumb {
+                width:125px;
+                min-width:125px;
+                margin-right:10px;
+                .imgWrapper{
+                    padding-top: 56.25%;
+                }
+            }
+            &__img {
+                &--list {
+                    display:block;
+                }
+                &--thumb{
+                    display:none;
+                }
+            }
+            &__info {
+                width:calc(100% - 135px);
+            }
+            &__tit {
+                width:100%;
+                padding-top:2px;
+                @include a.ellipsis;
+            }
+            &__desc {
+                @include a.ellipsis(2);
+            }
+        }
+    }
+    // thumbnail type
+    &--thumb {
+        .programList__item {
+            width:calc((100% - 14px) / 3);
+        }
+        .programItem {
+            &__thumb {
+                margin-bottom:10px;
+                .imgWrapper{
+                    padding-top: 149.3%;
+                }
+            }
+            &__img {
+                &--list {
+                    display:none;
+                }
+                &--thumb{
+                    display:block;
+                }
+            }
+            &__tit {
+                @include a.ellipsis(2);
+            }
+            &__desc {
+                display:none;
+            }
+        }
+    }
+}
+
+.programItem {
+    display:block;
+    &__thumb {
+        border-radius:a.$radius-xs;
+        overflow:hidden;
+    }
+    &__tit {
+        color:var(--color-fg-default);
+        font-size:var(--fs-400);
+    }
+    &__evt {
+        display:inline-block;
+        vertical-align:middle;
+        margin-top:-3px;
+        margin-right:5px;
+        padding: 2px 5px 4px;
+        border:1px solid var(--color-accent-subtle);
+        border-radius:a.$radius-xs;
+        color:var(--color-accent-muted);
+        font-size:var(--fs-200);
+        letter-spacing:-0.02em;
+    }
+    &__desc {
+        color:var(--color-fg-muted);
+        font-size:var(--fs-300);
+        line-height:1.5em;
+    }
+}

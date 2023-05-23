@@ -1,0 +1,71 @@
+﻿@use '../abstracts/absForward' as a;
+
+// form
+.form {
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    gap:25px 0;
+    width:100%;
+    &__info {
+        position:absolute;
+        top:7px;
+        right:0;
+        color:var(--color-fg-default);
+        font-size:var(--fs-100);
+        &::before {
+            content:'*';
+            color:var(--color-accent-fg);
+        }
+    }
+    &__label {
+        display:block;
+        margin-bottom:10px;
+        color:var(--color-fg-default);
+        font-size:var(--fs-500);
+        &--required {
+            &::after {
+                content:'*';
+                color:var(--color-accent-fg);
+            }
+        }
+    }
+    &__error {
+        margin-top:10px;
+        color:var(--color-danger-fg);
+        font-size:var(--fs-300);
+        &:empty {
+            margin-top:0;
+        }
+    }
+    &__help {
+        margin-top:10px;
+        color:var(--color-fg-muted);
+        font-size:var(--fs-300);
+        &:empty {
+            margin-top:0;
+        }
+    }
+    &__feedback {
+        margin-top:10px;
+    }
+    &__alert {
+        color:var(--color-danger-fg);
+        font-size:var(--fs-300);
+        &::after {
+            content:'X';
+            margin-left:3px;
+        }
+        &--confirm {
+            color:var(--color-fg-muted);
+            &::after {
+                content:'O';
+            }
+        }
+        &--error {
+            &::after {
+                display:none;
+            }
+        }
+    }
+}

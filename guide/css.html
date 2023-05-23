@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>KBS TVUT 퍼블리싱 가이드</title>
+        <link rel="stylesheet" href="../assets/css/style.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="../assets/js/jquery-3.6.0.min.js"></script>
+        <script src="js/library.js"></script>
+        <script src="js/ui.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    </head>
+    <body>
+        <div class="pub">
+            <header class="pub_header">
+                <h1>KBS TVUT 퍼블리싱 가이드</h1>
+                <div class="pub_toggle">
+                    <a class="menuTrigger js-menuTrigger on" href="#">
+                        <span></span>
+                        <span></span>
+                    </a>
+                </div>
+            </header>
+            <div class="pub_snb js-pubSnb on">
+                <ol>
+                    <li class="on"><a href="guide.html">규칙</a></li>
+                </ol>
+                <ul>
+                </ul>
+            </div>
+            <ul class="pub_index">
+            </ul>
+            <div class="pub_container">
+                <section class="pub_section">
+                    <h2>CSS</h2>
+                    <div>
+                        <h3>기본 사항</h3>
+                        <ol class="pub_ol">
+                            <li>기본적으로 <b>camelCase</b>와 <b>BEM</b> 표기법을 사용하여 class를 표현한다.
+                                <div class="pub_markup">
+                                    <pre><code class="html">&lt;div class="searchForm"&gt;
+    &lt;input type="text" id="search" class="searchForm__input"&gt;
+    &lt;label for="search" class="a11y"&gt;검색어 입력&lt;/label&gt;
+    &lt;button class="searchForm__btn"&gt;검색&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                                </div>
+                            </li>
+                            <li>id는 스타일링을 위해 사용하지 않는다.</li>
+                            <li>tab size는 4칸을 기준으로 한다.(html, script 동일)</li>
+                            <li>색상과 폰트 사이즈는 기본적으로 지정된 변수를 통해 정의한다.</li>
+                            <li>JS 이벤트를 등록하는 요소의 경우 <b>.js-기능명</b> 으로 새로운 클래스를 작성하여 스타일링이 아닌 JS 전용으로 사용한다.</li>
+                            <li>JS를 통해 on/off 상태가 제어되는 경우 부여하는 클래스명은 <b>.active</b>로 정한다.</li>
+                        </ol>
+                    </div>
+                    <div>
+                        <h3>BEM</h3>
+                        <ol class="pub_ol">
+                            <li>각 요소에 의미를 부여하고, 요소간의 관계를 뚜렷하게 나타내기 위하여 BEM 방법론을 사용하여 CSS 선택자를 명명한다.</li>
+                            <li>BEM은 <b>Block</b>, <b>Element</b>, <b>Modifier</b>의 세 가지 요소로 CSS 선택자를 나타낸다.
+                                <div class="pub_markup">
+                                    <pre><code class="html">&lt;div class="block"&gt;
+    &lt;div class="block__element"&gt;&lt;/div&gt;
+    &lt;div class="block__element block__element--modifier"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                                </div>
+                            </li>
+                            <li>자세한 내용은 <a class="pub_a pub_bold" target="_blank" href="https://hickory-atom-546.notion.site/CSSnaming-80c939beac154ca3b24d2d4a22087da7">링크</a>를 참고한다.</li>
+                        </ol>
+                    </div>
+                </section>
+                <section class="pub_section">
+                    <h2>SCSS</h2>
+                    <div>
+                        <h3>기본 사항</h3>
+                        <ol class="pub_ol">
+                            <li><b>Dart-Sass</b>를 사용한다.</li>
+                            <li>컴파일된 <b>CSS는 GIT에서 ignore</b> 처리 되어 있으므로, <b>pull 후 SCSS파일을 수정하여 컴파일</b> 하여야 한다.</li>
+                            <li>vscode의 확장 프로그램인 <a class="pub_a pub_bold" href="https://marketplace.visualstudio.com/items?itemName=glenn2223.live-sass">Live Sass Compiler</a>를 사용하여 컴파일한다.</li>
+                            <li>autoprefix는 별도 설정 없이 디폴트로 사용한다.</li>
+                            <li>한 줄 주석(//주석)을 사용하여 컴파일 시 주석이 사라지도록 한다.</li>
+                            <li>컴파일 결과물은 아래와 같이 compressed와 expanded 두 가지 포맷으로 내보내고, compressed 파일을 불러와 사용한다. 
+                                <div class="pub_markup">
+                                    <pre><code class="json">"liveSassCompile.settings.formats": [
+    {
+        "format": "compressed",
+        "extensionName": ".min.css",
+        "savePath": "~/../css",
+    },
+    {
+        "format": "expanded",
+        "extensionName": ".css",
+        "savePath": "~/../css",
+    }
+]</code></pre>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                    <div>
+                        <h3>Partial SCSS 폴더구조</h3>
+                        <ol class="pub_ol">
+                            <li>아래 예시를 기본으로 하여 SCSS 폴더를 구성한다.
+                                <div class="pub_markup">
+                                    <pre><code class="text">scss/
+|
+|– abstracts/
+|   |– _variables.scss    # 변수
+|   |– _functions.scss    # 함수
+|   |– _mixins.scss       # 믹스인
+|   …                     # 기타
+|
+|– base/
+|   |– _reset.scss        # 리셋/정규화
+|   |– _font.scss         # 폰트
+|   |– _common.scss       # 공통
+|   …                     # 기타
+|
+|– components/
+|   |– _buttons.scss      # 버튼
+|   |– _carousel.scss     # 캐러셀
+|   |– _dropdown.scss     # 드롭다운
+|   …                     # 기타
+|
+|– layout/
+|   |– _navigation.scss   # 네비게이션
+|   |– _header.scss       # 헤더
+|   |– _footer.scss       # 푸터
+|   |– _sidebar.scss      # 사이드바
+|   |– _forms.scss        # 폼
+|   …                     # 기타
+|
+|– pages/
+|   |– _home.scss         # 홈 한정 스타일
+|   |– _contact.scss      # contact 한정 스타일
+|   …                     # 기타
+|
+|– style.scss             # 메인 SCSS 파일</code></pre>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                    <div>
+                        <h3>Variable</h3>
+                        <ol class="pub_ol">
+                            <li>색상, border-radius, z-index 등의 값은 미리 변수로 만들어 사용한다.</li>
+                            <li>변수의 이름은 <b>$key-value-modifier</b> 타입으로 한다.
+                                <div class="pub_markup">
+                                    <pre><code class="scss">//색상, CSS var 사용
+$theme-map-light: (
+    --color-primary: #d75893,
+    --color-secondary: #9b4dca
+);
+$theme-map-dark: (
+    --color-primary: #f34c84,
+    --color-secondary: #c297dc
+);
+//border-radius
+$radius-xs: 10px;
+$radius-sm: 20px;
+$radius-md: 30px;
+$radius-lg: 40px;
+$radius-xl: 50px;
+//z-index map
+$z-indexes: (
+    'toast': 6000,
+    'modal': 5000,
+    'dropdown': 4000,
+    'default': 1,
+    'below': -1,
+);</code></pre>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                    <div>
+                        <h3>Extend, Mixin, Function</h3>
+                        <ol class="pub_ol">
+                            <li><b>extend</b>는 컴파일 시 각 선택자에 연관성을 부여하므로, <b>mixin</b>을 먼저 고려한다.</li>
+                            <li>그 용도를 알 수 있도록 주석을 작성한다.</li>
+                            <li>sass 내장함수의 경우 해당 모듈을 불러와 namespace를 표기 하는것을 권장한다.
+                                <div class="pub_markup">
+                                    <pre><code class="scss">@use 'sass:map';
+@function getZ($layer){
+    @return map.get(v.$z-indexes, $layer);
+}</code></pre>
+                                </div>
+
+                            </li>
+                        </ol>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </body>
+</html>

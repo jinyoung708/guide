@@ -1,0 +1,46 @@
+﻿@use '../abstracts/absForward' as a;
+
+.fs-test{
+    position: fixed;
+    z-index: a.getZ(absolute);
+    top: 10%;
+    left: 0;
+    button{
+        display: block;
+        padding: 7px;
+        margin-bottom: 5px;
+        opacity: .5;
+        font-size: 14px;
+        color: var(--color-fg-default);
+        background: var(--color-canvas-default);
+        &.active{
+            background: var(--color-accent-emphasis);
+            color: var(--color-fg-on-emphasis);
+        }
+    }
+}
+
+.pop-test{
+    position: fixed;
+    z-index: a.getZ(absolute);
+    top: 10%;
+    right: 0;
+    opacity: .5;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+    button, span{
+        display: block;
+        font-size: 14px;
+        padding: 7px;
+    }
+    button{
+        background: var(--color-accent-emphasis);
+        color: var(--color-fg-on-emphasis);
+    }
+    span{
+        color: var(--color-fg-default);
+        background: var(--color-canvas-default);
+    }
+}

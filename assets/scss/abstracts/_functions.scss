@@ -1,0 +1,18 @@
+﻿@use 'sass:map';
+@use 'variables' as v;
+
+// font-face 축약 믹스인에 필요한 문자열 바꾸기
+// https://gist.github.com/jonathantneal/d0460e5c2d5d7f9bc5e6
+@function str-replace($string, $search, $replace: "") {
+	$index: str-index($string, $search);
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+	@return $string;
+}
+
+// z-index map 가져오기
+// z-index: getZ(레이어명);
+@function getZ($layer){
+	@return map.get(v.$z-indexes, $layer);
+}

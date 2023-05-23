@@ -1,0 +1,79 @@
+﻿// 로그인 필요, 혹은 해당 페이지의 게시물 등이 없을 경우 표시되는 요소들
+@use '../abstracts/absForward' as a;
+
+.emptySection{
+    text-align: center;
+    &__desc{
+        font-size: var(--fs-400);
+        color: var(--color-fg-muted);
+        letter-spacing: -0.02em;
+    }
+    &__btnArea{
+        margin-top: 10px;
+    }
+    &__btn{
+        display: block;
+        margin: 0 auto;
+        width: 176px;
+        height: 41px;
+        line-height: 39px;
+        border: 1px solid var(--color-border-default);
+        font-size: var(--fs-400);
+        letter-spacing: -0.02em;
+        border-radius: a.$radius-xs;
+    }
+}
+
+.emptyPage{
+    width: 100%;
+    height: calc(100vh - 44px - 25px - 25px - constant(safe-area-inset-top));
+    height: calc(100vh - 44px - 25px - 25px - env(safe-area-inset-top));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @supports (-webkit-touch-callout: none) {
+        height: -webkit-fill-available;
+    }
+    &__cont{
+        position: relative;
+        text-align: center;
+    }
+    &__img{
+        position: absolute;
+        bottom: calc(100% + 20px);
+        left: 50%;
+        transform: translateX(-50%);
+        width: 75px;
+    }
+    &__tit{
+        font-size: var(--fs-800);
+        letter-spacing: -0.02em;
+        font-weight: 700;
+        margin-top: -10px;
+    }
+    &__desc{
+        font-size: var(--fs-400);
+        letter-spacing: -0.02em;
+    }
+    &__txt{
+        font-size: var(--fs-400);
+        letter-spacing: -0.02em;
+        color: var(--color-fg-muted);
+    }
+    &__btnArea{
+        margin-top: 10px;
+    }
+    &__btn{
+        display: block;
+        margin: 0 auto;
+        width: 175px;
+        height: 45px;
+        line-height: 43px;
+        border: 1px solid var(--color-border-default);
+        font-size: var(--fs-400);
+        letter-spacing: -0.02em;
+        text-align: center;
+        color: var(--color-fg-default);
+        border-radius: a.$radius-xs;
+    }
+}

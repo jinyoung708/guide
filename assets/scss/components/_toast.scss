@@ -1,0 +1,30 @@
+﻿@use '../abstracts/absForward' as a;
+
+.toast{
+    display: none;
+    width: 100%;
+    position: fixed;
+    top: 44px;
+    left: 0;
+    right: 0;
+    padding: 0 16px;
+    z-index: a.getZ(toast);
+    text-align: center;
+    font-size: 0;
+    &--bottom{
+        top: auto;
+        bottom: 35px;
+    }
+    &__txt{
+        display: inline-block;
+        vertical-align: top;
+        background: var(--color-fg-default);
+        font-size: var(--fs-200);
+        letter-spacing: -0.02em;
+        text-align: center;
+        font-weight: 500;
+        color: var(--color-neutral-default);
+        border-radius: a.$radius-xs;
+        padding: 11px 16px;
+    }
+}

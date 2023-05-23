@@ -1,0 +1,33 @@
+@use '../abstracts/absForward' as a;
+
+.boardDetail {
+    &__head {
+        padding-bottom:25px;
+        border-bottom:1px solid var(--color-border-subtle);
+    }
+    &__date {
+        margin-bottom:8px;
+        color:var(--color-fg-muted);
+        font-size:var(--fs-300);
+        line-height:1;
+        letter-spacing:-0.02em;
+    }
+    &__tit {
+        color:var(--color-fg-default);
+        font-size:var(--fs-400);
+        line-height:1.5em;
+    }
+    &__body {
+        padding-top:25px;
+    }
+    &__imgWrap {
+        margin-bottom:25px;
+        border-radius:a.$radius-xs;
+        overflow:hidden;
+    }
+    &__cont {
+        color:var(--color-fg-default);
+        font-size:var(--fs-300);
+        line-height:1.5em;
+    }
+}

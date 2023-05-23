@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>KBS TVUT 퍼블리싱 가이드</title>
+        <link rel="stylesheet" href="../assets/css/style.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="../assets/js/jquery-3.6.0.min.js"></script>
+        <script src="js/library.js"></script>
+        <script src="js/ui.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+        <script src="../assets/vendor/chartjs/chartjs.js"></script>
+        <script src="../assets/vendor/chartjs/chartjs-plugin-datalabels.js"></script>
+    </head>
+    <body data-color-mode="dark">
+        <div class="pub">
+            <header class="pub_header">
+                <h1>KBS TVUT 퍼블리싱 가이드</h1>
+                <div class="pub_toggle">
+                    <a class="menuTrigger js-menuTrigger on" href="#">
+                        <span></span>
+                        <span></span>
+                    </a>
+                </div>
+            </header>
+            <div class="pub_snb js-pubSnb on">
+                <ol>
+                    <li class="on"><a href="guide.html">규칙</a></li>
+                </ol>
+                <ul>
+                </ul>
+            </div>
+            <ul class="pub_index">
+            </ul>
+            <div class="pub_container">
+                <section class="pub_section">
+                    <h2>세로 막대 그래프</h2>
+                    <div>
+                        <div class="pub_view" style="height:600px">
+                            <canvas id="xBarChart"></canvas>
+                            <script>
+                                var xBarChartEl = document.getElementById('xBarChart').getContext('2d');
+                                var xBarChart = new Chart(xBarChartEl, {
+                                    type: 'bar',
+                                    data: {
+                                        labels: ['GRADE1', 'GRADE2', 'ETC'],
+                                        datasets: [{
+                                            data: [15, 60, 30],
+                                            backgroundColor: ['#ff6384', '#36a2eb', '#ff9f40'],
+                                            borderColor: ['#ff6384', '#36a2eb', '#ff9f40'],
+                                            borderWidth: 1
+                                        }, ],
+                                    },
+                                    plugins: [ChartDataLabels],
+                                    options: {
+                                        plugins: {
+                                            datalabels: {
+                                                color: '#000000',
+                                                clip: true,
+                                                anchor: 'end',
+                                                align: 'start',
+                                                clamp: true,
+                                                offset: 10
+                                            },
+                                            legend: {
+                                                display: false
+                                            },
+                                        },
+                                        scales: {
+                                            x: {
+                                                display: false
+                                            },
+                                            y: {
+                                                display: false
+                                            }
+                                        }
+                                    }
+                                });
+                            </script>
+                        </div>
+                        <div class="pub_markup">
+                            <pre>
+                                <code class="html">&lt;canvas id="xBarChart"&gt;&lt;/canvas&gt;</code>
+                            </pre>
+                        </div>
+                        <div class="pub_markup">
+                            <pre>
+                                <code class="javascript">var xBarChartEl = document.getElementById('xBarChart').getContext('2d');
+var xBarChart = new Chart(xBarChartEl, {
+    type: 'bar',
+    data: {
+        labels: ['GRADE1', 'GRADE2', 'ETC'],
+        datasets: [{
+            data: [15, 60, 30],
+            backgroundColor: ['#ff6384', '#36a2eb', '#ff9f40'],
+            borderColor: ['#ff6384', '#36a2eb', '#ff9f40'],
+            borderWidth: 1
+        }, ],
+    },
+    plugins: [ChartDataLabels],
+    options: {
+        plugins: {
+            datalabels: {
+                color: '#000000',
+                clip: true,
+                anchor: 'end',
+                align: 'start',
+                clamp: true,
+                offset: 10
+            },
+            legend: {
+                display: false
+            },
+        },
+        scales: {
+            x: {
+                display: false
+            },
+            y: {
+                display: false
+            }
+        }
+    }
+});</code>
+                            </pre>
+                        </div>
+                    </div>
+                    <div>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </section>
+                <section class="pub_section">
+                    <h2>가로 적층형 막대 그래프</h2>
+                    <div>
+                        <div class="pub_view" style="height:100px">
+                            <canvas id="yBarChart"></canvas>
+                            <script>
+                                var yBarChartEl = document.getElementById('yBarChart').getContext('2d');
+                                var yBarChart = new Chart(yBarChartEl, {
+                                    type: 'bar',
+                                    data: {
+                                        labels: ["찬반"],
+                                        datasets: [{
+                                            label: "찬성",
+                                            data: [40],
+                                            backgroundColor: ['#36a2eb']
+                                        }, {
+                                            label: "반대",
+                                            data: [60],
+                                            backgroundColor: ['#ff6384']
+                                        }]
+                                    },
+                                    plugins: [ChartDataLabels],
+                                    options: {
+                                        maintainAspectRatio: false,
+                                        indexAxis: 'y',
+                                        scales: {
+                                            x: {
+                                                stacked: true,
+                                                display: false 
+                                            },
+                                            y: {
+                                                stacked: true,
+                                                display: false
+                                            }
+                                        },
+                                        plugins: {
+                                            legend: {
+                                                display: false
+                                            },
+                                            datalabels: {
+                                                color: '#000000'
+                                            }
+                                        }
+                                    }
+                                });
+                            </script>
+                        </div>
+                        <div class="pub_markup">
+                            <pre>
+                                <code class="html">&lt;canvas id="yBarChart"&gt;&lt;/canvas&gt;</code>
+                            </pre>
+                        </div>
+                        <div class="pub_markup">
+                            <pre>
+                                <code class="javascript">var yBarChartEl = document.getElementById('yBarChart').getContext('2d');
+var yBarChart = new Chart(yBarChartEl, {
+    type: 'bar',
+    data: {
+        labels: ["찬반"],
+        datasets: [{
+            label: "찬성",
+            data: [40],
+            backgroundColor: ['#36a2eb']
+        }, {
+            label: "반대",
+            data: [60],
+            backgroundColor: ['#ff6384']
+        }]
+    },
+    plugins: [ChartDataLabels],
+    options: {
+        maintainAspectRatio: false,
+        indexAxis: 'y',
+        scales: {
+            x: {
+                stacked: true,
+                display: false 
+            },
+            y: {
+                stacked: true,
+                display: false
+            }
+        },
+        plugins: {
+            legend: {
+                display: false
+            },
+            datalabels: {
+                color: '#000000'
+            }
+        }
+    }
+});</code>
+                            </pre>
+                        </div>
+                    </div>
+                    <div>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </section>
+                <section class="pub_section">
+                    <h2>도넛 차트</h2>
+                    <div>
+                        <div class="pub_view" style="height:500px">
+                            <canvas id="doughnutChart"></canvas>
+                            <script>
+                                var doughnutChartEl = document.getElementById('doughnutChart').getContext('2d');
+                                var doughnutChart = new Chart(doughnutChartEl, {
+                                    type: 'doughnut',
+                                    data: {
+                                        labels: ['GRADE1', 'GRADE2', 'ETC'],
+                                        datasets: [{
+                                            data: [33, 35, 20],
+                                            backgroundColor: ['#ff6384', '#36a2eb', '#ff9f40'],
+                                            borderColor: ['#ff6384', '#36a2eb', '#ff9f40'],
+                                            borderWidth: 1
+                                        }, ],
+                                    },
+                                    plugins: [ChartDataLabels],
+                                    options: {
+                                        animation: {
+                                            duration: 1000
+                                        },
+                                        plugins: {
+                                            datalabels: {
+                                                color: '#ffffff',
+                                                clip: true,
+                                                anchor: 'end',
+                                                align: 'end',
+                                                offset: 4
+                                            },
+                                            legend: {
+                                                onClick: function (e) {
+                                                    e.stopPropagation()
+                                                }
+                                            }
+                                        }
+                                    }
+                                });
+                            </script>
+                        </div>
+                        <div class="pub_markup">
+                            <pre>
+                                <code class="html">&lt;canvas id="doughnutChart"&gt;&lt;/canvas&gt;</code>
+                            </pre>
+                        </div>
+                        <div class="pub_markup">
+                            <pre>
+                                <code class="javascript">var doughnutChartEl = document.getElementById('doughnutChart').getContext('2d');
+var doughnutChart = new Chart(doughnutChartEl, {
+    type: 'doughnut',
+    data: {
+        labels: ['GRADE1', 'GRADE2', 'ETC'],
+        datasets: [{
+            data: [33, 35, 20],
+            backgroundColor: ['#ff6384', '#36a2eb', '#ff9f40'],
+            borderColor: ['#ff6384', '#36a2eb', '#ff9f40'],
+            borderWidth: 1
+        }, ],
+    },
+    plugins: [ChartDataLabels],
+    options: {
+        animation: {
+            duration: 1000
+        },
+        plugins: {
+            datalabels: {
+                color: '#ffffff',
+                clip: true,
+                anchor: 'end',
+                align: 'end',
+                offset: 4
+            },
+            legend: {
+                onClick: function (e) {
+                    e.stopPropagation()
+                }
+            }
+        }
+    }
+});</code>
+                            </pre>
+                        </div>
+                    </div>
+                    <div>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </section>
+            </div>
+        </div>
+    </body>
+</html>

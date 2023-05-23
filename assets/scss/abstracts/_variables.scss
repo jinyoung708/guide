@@ -1,0 +1,42 @@
+﻿// z-index
+// getZ($layer)로 가져온다.
+$z-indexes: (
+    'absolute' : 9999,
+    'toast': 8000,
+    'modal': 7000,
+    'full-modal': 6000,
+    'header': 5000,
+    'gnb': 4000,
+    'default': 1,
+    'below': -1
+);
+
+// font-family : Montserrat 폰트 사용시
+$mont: 'Montserrat','Apple SD Gothic Neo','애플 SD 산돌고딕 Neo','Helvetica Neue',Roboto,sans-serif;
+$noto: 'Noto Sans KR','Apple SD Gothic Neo','애플 SD 산돌고딕 Neo','Helvetica Neue',Roboto,sans-serif;
+
+// 기본 가로 gradient
+$gradient-horizontal: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+// 기본 세로 gradient
+$gradient-vertical: linear-gradient(0deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+
+// border-radius
+$radius-xs: 3px;
+$radius-xl: 9999px;
+
+// button color, size variation
+$btn-colors: (
+    'default': var(--color-accent-emphasis),
+    'gradient': $gradient-horizontal,
+    'emphasis': var(--color-neutral-emphasis),
+    'emphasisOnOverlay': var(--color-neutral-emphasis-on-overlay),
+    'neutral': var(--color-neutral-default),
+    'neutralOnOverlay': var(--color-neutral-default-on-overlay),
+);
+
+// button size variation
+$btn-sizes: (
+    'sm': 45,
+    'md': 50,
+    'lg': 60
+);

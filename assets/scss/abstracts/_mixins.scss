@@ -1,0 +1,95 @@
+﻿@use 'functions' as f;
+@use 'sass:list';
+@use 'sass:math';
+@use 'sass:map';
+@use 'sass:string';
+
+// font-face 축약 mixin
+// @include font-face('font-family', '경로/파일명', font-weight, font-style, 확장자);
+// https://gist.github.com/jonathantneal/d0460e5c2d5d7f9bc5e6
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+	$src: null;
+
+	$extmods: (
+		eot: "?",
+		svg: "#" + f.str-replace($name, " ", "_")
+	);
+
+	$formats: (
+		otf: "opentype",
+		ttf: "truetype"
+	);
+
+	@each $ext in $exts {
+		$extmod: if(map.has-key($extmods, $ext), $ext + map.get($extmods, $ext), $ext);
+		$format: if(map.has-key($formats, $ext), map.get($formats, $ext), $ext);
+		$src: list.append($src, url(string.quote($path + "." + $extmod)) format(string.quote($format)), comma);
+	}
+
+	@font-face {
+		font-family: string.quote($name);
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
+	}
+}
+
+// 말줄임 mixin
+// 인자로 받은 line 만큼 말줄임 적용
+// @include ellipsis(3);
+@mixin ellipsis($line: 1) {
+    @if ($line == 1) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    } @else {
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: $line;
+    }
+}
+
+// 반응형 iframe mixin
+// @include rwd-iframe-wrapper; // 16:9 비율일 경우
+// @include rwd-iframe-wrapper(2 1); // 2:1 비율일 경우
+@mixin rwd-iframe-wrapper($ratio: 16 9) {
+	$ratio-width: list.nth($ratio, 1);
+	$ratio-height: list.nth($ratio, 2);
+	$aspect-ratio: $ratio-height / $ratio-width;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	height: 0;
+	padding-top: math.percentage($aspect-ratio);
+	iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+// css var map을 뿌려주는 mixin
+// :root body[data-color-mode=dark]{@include spread-map($color-map-dark);} //형태로 사용
+@mixin spread-map($map: ()) {
+    @each $key, $value in $map {
+        #{$key}: $value;
+    }
+}
+
+// dom element hidden mixin(ex : input, etc...)
+@mixin element-hidden {
+    position:absolute;
+    z-index:f.getZ(below);
+    width:1px;
+    height:1px;
+    padding:0;
+    border:0;
+    clip:rect(1px, 1px, 1px, 1px);
+    clip-path:inset(50%);
+    white-space:nowrap;
+    overflow:hidden;
+}

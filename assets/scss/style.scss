@@ -1,0 +1,40 @@
+﻿@charset 'utf-8';
+
+// base
+@use 'base/reset';
+@use 'base/font'; 
+@use 'base/common';
+
+// component
+@use 'components/button';
+@use 'components/input';
+@use 'components/form';
+@use 'components/slide';
+@use 'components/empty';
+@use 'components/comment';
+@use 'components/modal';
+@use 'components/alert';
+@use 'components/toast';
+@use 'components/board';
+@use 'components/filter';
+@use 'components/chat';
+@use 'components/share';
+@use 'components/imgWrapper';
+
+// layout
+@use 'layout/page';
+@use 'layout/header';
+@use 'layout/footer';
+
+// pages
+@use 'pages/main';
+@use 'pages/login';
+@use 'pages/myPage';
+@use 'pages/allProgram';
+@use 'pages/event';
+@use 'pages/terms';
+@use 'pages/episode';
+@use 'pages/pc';
+
+// test
+@use 'components/tester';

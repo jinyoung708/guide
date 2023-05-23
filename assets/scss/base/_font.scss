@@ -1,0 +1,19 @@
+﻿@use '../abstracts/absForward' as a;
+
+@include a.font-face("Noto Sans KR", "../fonts/notoSansKR/notoSansKR-100", 100, normal, woff2 woff);
+@include a.font-face("Noto Sans KR", "../fonts/notoSansKR/notoSansKR-300", 300, normal, woff2 woff);
+@include a.font-face("Noto Sans KR", "../fonts/notoSansKR/notoSansKR-400", 400, normal, woff2 woff);
+@include a.font-face("Noto Sans KR", "../fonts/notoSansKR/notoSansKR-500", 500, normal, woff2 woff);
+@include a.font-face("Noto Sans KR", "../fonts/notoSansKR/notoSansKR-700", 700, normal, woff2 woff);
+@include a.font-face("Noto Sans KR", "../fonts/notoSansKR/notoSansKR-900", 900, normal, woff2 woff);
+
+@include a.font-face("Montserrat", "../fonts/Montserrat/montserrat-100", 100, normal, woff2 woff);
+@include a.font-face("Montserrat", "../fonts/Montserrat/montserrat-200", 200, normal, woff2 woff);
+@include a.font-face("Montserrat", "../fonts/Montserrat/montserrat-300", 300, normal, woff2 woff);
+@include a.font-face("Montserrat", "../fonts/Montserrat/montserrat-400", 400, normal, woff2 woff);
+@include a.font-face("Montserrat", "../fonts/Montserrat/montserrat-500", 500, normal, woff2 woff);
+@include a.font-face("Montserrat", "../fonts/Montserrat/montserrat-600", 600, normal, woff2 woff);
+@include a.font-face("Montserrat", "../fonts/Montserrat/montserrat-700", 700, normal, woff2 woff);
+@include a.font-face("Montserrat", "../fonts/Montserrat/montserrat-700italic", 700, italic, woff2 woff);
+@include a.font-face("Montserrat", "../fonts/Montserrat/montserrat-800", 800, normal, woff2 woff);
+@include a.font-face("Montserrat", "../fonts/Montserrat/montserrat-900", 900, normal, woff2 woff);

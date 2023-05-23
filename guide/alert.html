@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>KBS TVUT 퍼블리싱 가이드</title>
+        <link rel="stylesheet" href="../assets/css/style.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="../assets/js/jquery-3.6.0.min.js"></script>
+        <script src="../assets/js/ui.js"></script>
+        <script src="js/library.js"></script>
+        <script src="js/ui.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    </head>
+    <body data-color-mode="dark" data-fs-mode="md">
+        <div class="pub">
+            <header class="pub_header">
+                <h1>KBS TVUT 퍼블리싱 가이드</h1>
+                <div class="pub_toggle">
+                    <a class="menuTrigger js-menuTrigger on" href="#">
+                        <span></span>
+                        <span></span>
+                    </a>
+                </div>
+            </header>
+            <div class="pub_snb js-pubSnb on">
+                <ol>
+                    <li class="on"><a href="guide.html">규칙</a></li>
+                </ol>
+                <ul>
+                </ul>
+            </div>
+            <ul class="pub_index">
+            </ul>
+            <div class="pub_container">
+                <section class="pub_section">
+                    <h2>alert</h2>
+                    <div>
+                        <div class="pub_view" style="position:relative; height:300px;">
+                            <div id="alert1" class="alert" style="position:absolute; display:block;">
+                                <div class="alert__container">
+                                    <div class="alert__body">
+                                        <p class="alert__message">default type alert</p>
+                                    </div>
+                                    <div class="alert__foot">
+                                        <button type="button" class="alert__btn">확인</button>                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pub_markup">
+                            <pre>
+                                <code class="html">&lt;div id="" class="alert"&gt;
+    &lt;div class="alert__container"&gt;
+        &lt;div class="alert__body"&gt;
+            &lt;p class="alert__message"&gt;&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="alert__foot"&gt;
+            &lt;button type="button" class="alert__btn"&gt;확인&lt;/button&gt;                    
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code>
+                            </pre>
+                        </div>
+                    </div>
+                </section>
+                <section class="pub_section">
+                    <h2>alert : dimmed</h2>
+                    <div>
+                        <div class="pub_view" style="position:relative; height:300px;">
+                            <div id="alert2" class="alert alert--dimmed" style="position:absolute; display:block;">
+                                <div class="alert__container">
+                                    <div class="alert__body">
+                                        <p class="alert__message">dimmed type alert</p>
+                                    </div>
+                                    <div class="alert__foot">
+                                        <button type="button" class="alert__btn">확인</button>                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pub_markup">
+                            <pre>
+                                <code class="html">&lt;div id="" class="alert alert--dimmed"&gt;
+    &lt;div class="alert__container"&gt;
+        &lt;div class="alert__body"&gt;
+            &lt;p class="alert__message"&gt;&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="alert__foot"&gt;
+            &lt;button type="button" class="alert__btn"&gt;확인&lt;/button&gt;                    
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code>
+                            </pre>
+                        </div>
+                    </div>
+                </section>
+                <section class="pub_section">
+                    <h2>alert : dimmed(우상단 닫기 버튼)</h2>
+                    <div>
+                        <div class="pub_view" style="position:relative; height:300px;">
+                            <div id="alert2" class="alert alert--dimmed" style="position:absolute; display:block;">
+                                <button type="button" class="alert__close"><span class="a11y">닫기</span></button>
+                                <div class="alert__container">
+                                    <div class="alert__body">
+                                        <p class="alert__message">dimmed type alert</p>
+                                    </div>
+                                    <div class="alert__foot">
+                                        <button type="button" class="alert__btn">확인</button>                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pub_markup">
+                            <pre>
+                                <code class="html">&lt;div id="" class="alert alert--dimmed"&gt;
+    &lt;button type="button" class="alert__close"&gt;&lt;span class="a11y"&gt;닫기&lt;/span&gt;&lt;/button&gt;
+    &lt;div class="alert__container"&gt;
+        &lt;div class="alert__body"&gt;
+            &lt;p class="alert__message"&gt;&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="alert__foot"&gt;
+            &lt;button type="button" class="alert__btn"&gt;확인&lt;/button&gt;                    
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code>
+                            </pre>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </body>
+</html>

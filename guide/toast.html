@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>KBS TVUT 퍼블리싱 가이드</title>
+        <link rel="stylesheet" href="../assets/css/style.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="../assets/js/jquery-3.6.0.min.js"></script>
+        <script src="../assets/js/ui.js"></script>
+        <script src="js/library.js"></script>
+        <script src="js/ui.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    </head>
+    <body data-color-mode="dark" data-fs-mode="md">
+        <div class="pub">
+            <header class="pub_header">
+                <h1>KBS TVUT 퍼블리싱 가이드</h1>
+                <div class="pub_toggle">
+                    <a class="menuTrigger js-menuTrigger on" href="#">
+                        <span></span>
+                        <span></span>
+                    </a>
+                </div>
+            </header>
+            <div class="pub_snb js-pubSnb on">
+                <ol>
+                    <li class="on"><a href="guide.html">규칙</a></li>
+                </ol>
+                <ul>
+                </ul>
+            </div>
+            <ul class="pub_index">
+            </ul>
+            <div class="pub_container">
+                <section class="pub_section">
+                    <h2>toast</h2>
+                    <div>
+                        <div class="pub_view" style="position:relative; height:300px;">
+                            <div id="toast1" class="toast" style="position:absolute; z-index:10; display:block;">
+                                <button type="button" class="toast__txt">새 이벤트가 등록됐어요. 누르면 새로고침 돼요!</button>
+                            </div>
+                        </div>
+                        <div class="pub_markup">
+                            <pre>
+                                <code class="html">&lt;div id="toast1" class="toast"&gt;
+    &lt;button type="button" class="toast__txt"&gt;새 이벤트가 등록됐어요. 누르면 새로고침 돼요!&lt;/button&gt;
+&lt;/div&gt;</code>
+                            </pre>
+                        </div>
+                    </div>
+                </section>
+                <section class="pub_section">
+                    <h2>toast - bottom</h2>
+                    <div>
+                        <div class="pub_view" style="position:relative; height:300px;">
+                            <div id="toast1" class="toast toast--bottom" style="position:absolute; z-index:10; display:block;">
+                                <span class="toast__txt">즐겨찾기 추가 완료!<br>
+                                    마이페이지에서 관리할 수 있어요.</span>
+                            </div>
+                        </div>
+                        <div class="pub_markup">
+                            <pre>
+                                <code class="html">&lt;div id="toast1" class="toast toast--bottom"&gt;
+    &lt;span class="toast__txt"&gt;즐겨찾기 추가 완료!&lt;br&gt; 마이페이지에서 관리할 수 있어요.&lt;/span&gt;
+&lt;/div&gt;</code>
+                            </pre>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+﻿.wrap{
+    width: 100%;
+    overflow-x: hidden;
+}
+.sub{
+    margin-top: calc(constant(safe-area-inset-top) + 44px);
+    margin-top: calc(env(safe-area-inset-top) + 44px);
+    padding: 25px 16px;
+    &__fullContainer{
+        margin: 0 -16px;
+    }
+}
+.fullHeight {
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    width:100%;
+    min-height:calc(100vh - 44px - 25px - 25px - constant(safe-area-inset-top));
+    min-height:calc(100vh - 44px - 25px - 25px - env(safe-area-inset-top));
+    @supports (-webkit-touch-callout: none) {
+        min-height: -webkit-fill-available;
+    }
+    &__foot {
+        margin-top:50px;
+    }
+}

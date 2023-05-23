@@ -1,0 +1,146 @@
+﻿.pc{
+    height: 100vh;
+    background: #222;
+    b{
+        font-weight: 700;
+    }
+    &__container{
+        width: 1100px;
+        height: 100%;
+        padding: 0 50px;
+        margin: 0 auto;
+        display: flex;
+    }
+    &__wrapper{
+        width: calc(100% - 481px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    &__iframe{
+        width: 481px;
+        height: 100%;
+    }
+    &__body{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-grow: 1;
+    }
+    &__tit{
+        font-size: 32px;
+        letter-spacing: -0.02em;
+        padding-bottom: 211px;
+        position: relative;
+        line-height: 1.3;
+        color: #fff;
+        &::before{
+            content:'';
+            display: block;
+            width: 640px;
+            height: 439px;
+            background: url('../images/bg/bg_phone.png') no-repeat center / cover;
+            pointer-events: none;
+            position: absolute;
+            left: -77px;
+            top: -83px;
+        }
+    }
+    &__footer{
+        padding-bottom: 50px;
+    }
+    &__linkList{
+        width: 320px;
+        border-top: 1px solid #333;
+        border-bottom: 1px solid #333;
+        font-size: 0;
+        padding: 10px 0;
+        margin-top: 50px;
+    }
+    &__link{
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+        a{
+            font-size: 13px;
+            letter-spacing: -0.02em;
+            color: #999;
+        }
+        & + .pc__link{
+            margin-left: 30px;
+            &::before{
+                content:'';
+                display: block;
+                width: 1px;
+                height: 11px;
+                background: #333;
+                position: absolute;
+                top: 50%;
+                margin-top: -5px;
+                left: -15px;
+            }
+        }
+    }
+    &__logoWrap{
+        margin-top: 14px;
+        font-size: 0;
+    }
+    &__logo{
+        display: inline-block;
+        vertical-align: middle;
+        & + .pc__logo{
+            margin-left: 10px;
+        }
+    }
+    &__addressWrap{
+        margin-top: 11px;
+    }
+    &__address{
+        font-size: 13px;
+        letter-spacing: -0.02em;
+        color: #999;
+        line-height: 1.75;
+    }
+    ul.pc__address{
+        display: flex;
+        li{
+            display: inline-block;
+            vertical-align: middle;
+            & + li{
+                position: relative;
+                margin-left: 30px;
+                &::before{
+                    content:'';
+                    display: block;
+                    width: 1px;
+                    height: 11px;
+                    margin-top: -5px;
+                    position: absolute;
+                    left: -16px;
+                    top: 50%;
+                    background: #333;
+                }
+            }
+        }
+    }
+}
+.appDown{
+    display: flex;
+    &__wrapper{
+        padding-left: 26px;
+        font-size: 0;
+    }
+    &__tit{
+        font-size: 16px;
+        letter-spacing: -0.02em;
+        margin-bottom: 15px;
+        color: #fff;
+    }
+    &__link{
+        display: inline-block;
+        vertical-align: middle;
+        & + .appDown__link{
+            margin-left: 30px;
+        }
+    }
+}

@@ -1,0 +1,73 @@
+﻿@use '../abstracts/absForward' as a;
+
+// 로그인
+.login {
+    min-height:100vh;
+    @supports (-webkit-touch-callout: none) {
+        min-height: -webkit-fill-available;
+    }
+    padding: {
+        top:calc(constant(safe-area-inset-top) + 165px);
+        top:calc(env(safe-area-inset-top) + 165px);
+        right:16px;
+        bottom:70px;
+        left:16px;
+    }
+    background: {
+        image:url('../images/bg/bg_login.jpg');
+        position-x:center;
+        position-y:calc(constant(safe-area-inset-top) - 44px);
+        position-y:calc(env(safe-area-inset-top) - 44px);
+        repeat:no-repeat;
+        size:100% auto;
+    };
+    &__tit {
+        margin-bottom:50px;
+        padding-top:75px;
+        background: {
+            image:url('../images/img/img_logoBig.png');
+            repeat:no-repeat;
+            size:75px auto;
+            position:center 0;
+        };
+        text-align:center;
+        color:var(--color-fg-default);
+        font-size:var(--fs-800);
+        font-weight:700;
+    }
+    &__btnItem {
+        margin-top:10px;
+    }
+    &__btn {
+        position:relative;
+        border:1px solid var(--color-border-default);
+        border-radius:a.$radius-xs;
+        background:transparent;
+        $icons: (
+            'kakao', 'naver', 'google', 'apple'
+        );
+        @each $name in $icons {
+            &--#{$name} {
+                background: {
+                    image:url('../images/ico/ico_#{$name}.png');
+                    size:17px auto;
+                    repeat:no-repeat;
+                    position:15px center;
+                }
+            }
+        }
+    }
+    &__recent {
+        position:absolute;
+        top:50%;
+        margin-top:-9px;
+        margin-left:10px;
+        font-size: var(--fs-100);
+        letter-spacing: -0.02em;
+        color: var(--color-accent-fg);
+        border: 1px solid var(--color-accent-subtle);
+        line-height: 1;
+        border-radius: a.$radius-xs;
+        padding: 3px 4px;
+    }
+}

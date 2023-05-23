@@ -1,0 +1,302 @@
+﻿@use '../abstracts/absForward' as a;
+
+.slideControl{
+    &__bullet{
+        &.swiper-pagination-bullets.swiper-pagination-horizontal{
+            position: static;
+            z-index: a.getZ(default);
+            font-size: 0;
+            .swiper-pagination-bullet{
+                width: 9px;
+                height: 9px;
+                background: transparent;
+                border: 2px solid var(--color-border-emphasis);
+                opacity: 1;
+                margin: 0 2px;
+                text-align: left;
+                &-active{
+                    border: 0;
+                    background: a.$gradient-horizontal;
+                }
+                &:first-child{
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+    &__fraction{
+        &.swiper-pagination{
+            position: static;
+            font-family: a.$mont;
+            font-size: var(--fs-400);
+            color: var(--color-fg-muted);
+            text-align: center;
+            width: auto;
+            min-width: 35px;
+            padding: 3px 9px;
+            background: rgba(#000, 0.7);
+            border-radius: a.$radius-xl;
+            .slideControl__current{
+                color: var(--color-fg-default);
+            }
+        }
+    }
+}
+
+//프로모션 슬라이드
+.promotionSlide{
+    &.swiper{
+    }
+    &__control{
+        position: absolute;
+        top: 176.5px; //fallback 값. 실제로는 스크립트로 계산됨.
+        right: 16px;
+        z-index: a.getZ(default);
+    }
+}
+.promotion{
+    &__img{
+        .imgWrapper{
+            padding-top: 56.4%;
+        }
+    }
+    &__info{
+        padding: 25px 16px 15px;
+    }
+    &__badgeArea{
+        font-size: 0;
+    }
+    &__badge{
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 5px;
+        padding: 2px 5px 4px;
+        color: var(--color-accent-muted);
+        font-size: var(--fs-200);
+        letter-spacing: -0.02em;
+        border: 1px solid var(--color-accent-subtle);
+        border-radius: a.$radius-xs;
+        &:first-child{
+            margin-left: 0;
+        }
+    }
+    &__tit{
+        color: var(--color-fg-default);
+        font-size: var(--fs-800);
+        letter-spacing: -0.02em;
+        font-weight: 700;
+        @include a.ellipsis;
+    }
+    &__desc{
+        color: var(--color-fg-default);
+        font-size: var(--fs-400);
+        letter-spacing: -0.02em;
+        font-weight: 500;
+        @include a.ellipsis;
+    }
+}
+
+// 방송중인 프로그램 슬라이드
+.liveSlide{
+    &.swiper{
+        padding: 0 22.5px 0 10px;
+        overflow: visible;
+    }
+}
+.liveProgram{
+    &__img{
+        border-radius: a.$radius-xs;
+        overflow: hidden;
+        .imgWrapper{
+            padding-top: 56.2%;
+        }
+    }
+    &__info{
+        margin-top: 10px;
+    }
+    &__titArea{
+        display: flex;
+        align-items: center;
+    }
+    &__badge{
+        display: block;
+        margin-right: 5px;
+        padding: 2px 4.5px 4px;
+        color: var(--color-accent-muted);
+        font-size: var(--fs-200);
+        letter-spacing: -0.02em;
+        border: 1px solid var(--color-accent-subtle);
+        border-radius: a.$radius-xs;
+        flex-shrink: 0;
+    }
+    &__tit, &__desc{
+        color: var(--color-fg-muted);
+        font-size: var(--fs-400);
+        letter-spacing: -0.02em;
+        @include a.ellipsis;
+    }
+    &__tit{
+        font-weight: 700;
+    }
+    &__desc{
+        margin-top: 3px;
+    }
+}
+
+// 인기 프로그램 슬라이드
+.rankSlide{
+    .swiper-slide{
+        width: 165px;
+    }
+}
+.rankedProgram{
+    &__img{
+        overflow: hidden;
+        border-radius: a.$radius-xs;
+        .imgWrapper{
+            padding-top: 152.1%;
+        }
+    }
+    &__info{
+        display: flex;
+        margin-top: 5px;
+    }
+    &__num{
+        font-family: a.$mont;
+        padding: 0 5px 0 12px;
+        font-size: var(--fs-900);
+        font-weight: 700;
+        font-style: italic;
+        line-height: .76;
+        color:#000;
+        background: a.$gradient-vertical;
+        -webkit-background-clip: text;
+        -webkit-text-stroke: 3px transparent;
+        margin-top: -25px;
+        position: relative;
+    }
+    &__tit{
+        font-size: var(--fs-400);
+        color: var(--color-fg-muted);
+        letter-spacing: -0.02em;
+        @include a.ellipsis(2);
+    }
+}
+
+// 즐겨찾기 슬라이드
+.favSlide{
+    .swiper-slide{
+        width: 165px;
+    }
+}
+.favProgram{
+    &__img{
+        border-radius: a.$radius-xs;
+        overflow: hidden;
+        .imgWrapper{
+            padding-top: 152.1%;
+        }
+    }
+    &__info{
+        margin-top: 5px;
+    }
+    &__tit{
+        font-size: var(--fs-400);
+        color: var(--color-fg-muted);
+        letter-spacing: -0.02em;
+        @include a.ellipsis(2);
+    }
+}
+
+// 이벤트 배너 슬라이드
+.evtSlide{
+    &.swiper{
+        padding: 8px 0 10px;
+    }
+}
+.evtBanner{
+    border-radius: a.$radius-xs;
+    overflow: hidden;
+    .imgWrapper{
+        padding-top: 23.3%;
+    }
+}
+
+// 공지사항 팝업 슬라이드
+.noticeSlide {
+    width:100%;
+    max-width:325px;
+    .imgWrapper{
+        padding-top: 76.9%;
+    }
+    &__control {
+        position:absolute;
+        top:10px;
+        right:10px;
+        z-index: a.getZ(default);
+    }
+}
+
+// 에피소드 공지사항 슬라이드
+.epNoticeSlide{
+    &.epNoticeSlide--padded{
+        padding: 0 16px;
+    }
+}
+.epNotice{
+    width: 100%;
+    padding: 10px;
+    border-radius: a.$radius-xs;
+    background: var(--color-neutral-emphasis-on-overlay);
+    &__thumb{
+        display: inline-block;
+        vertical-align: middle;
+        width: 16px;
+        height: 16px;
+        background: {
+            image: url('../images/ico/ico_thumb.png');
+            repeat: no-repeat;
+            position: center;
+            size: contain;
+        };
+    }
+    &__desc{
+        display: block;
+        position: relative;
+        font-size: var(--fs-300);
+        letter-spacing: -0.02em;
+        line-height: 1.5em;
+        text-align: left;
+        color: var(--color-fg-muted);
+        min-height: 4.5em;
+        &.active{
+            @include a.ellipsis(3);
+            &::after{
+                content:'···모두보기';
+                display: block;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                color: var(--color-fg-muted);
+                background: var(--color-neutral-emphasis-on-overlay);
+                padding-left: 10px;
+                font-weight: 500;
+                background: linear-gradient(90deg, transparent 0%, var(--color-neutral-emphasis-on-overlay) 10px);
+            }
+        }
+    }
+}
+
+// 프로그램 이벤트 슬라이드
+.programEvtSlide{
+    .programEvtList{
+        padding: 0 16px;
+    }
+}
+
+// 태그 슬라이드
+.tagSlide{
+    .swiper-slide{
+        width: auto;
+    }
+}

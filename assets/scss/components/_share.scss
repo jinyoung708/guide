@@ -1,0 +1,21 @@
+﻿// 공유하기
+.shareList{
+    display: flex;
+    justify-content: center;
+    &__item{
+        display: flex;
+        justify-content: center;
+        width: 75px;
+    }
+    &__img{
+        width: 50px;
+        margin: 0 auto;
+    }
+    &__tit{
+        display: block;
+        font-size: var(--fs-400);
+        letter-spacing: -0.02em;
+        color: var(--color-fg-default);
+        margin-top: 5px;
+    }
+}
